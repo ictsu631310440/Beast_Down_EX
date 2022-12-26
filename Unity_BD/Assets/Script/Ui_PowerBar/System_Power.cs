@@ -6,8 +6,10 @@ using TMPro;
 
 public class System_Power : MonoBehaviour
 {
-    public TextMeshProUGUI valueText;
-    public Slider powerSlider;
+    [SerializeField] public TextMeshProUGUI valueText;
+    [SerializeField] public Slider powerSlider;
+
+    [Space]
 
     [Header("Point Settings")]
     public static int current_power = 0;
