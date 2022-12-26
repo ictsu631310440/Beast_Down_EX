@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class System_Power : MonoBehaviour
 {
-    //public Text valueText;
+    public TextMeshProUGUI valueText;
+    public Slider powerSlider;
+
+    [Header("Point Settings")]
     public static int current_power = 0;
     public int Up_point = 50;
     public int Down_point = 100;
-    public Slider powerSlider;
+    
 
-    /*public void OnSliderChanged(float value)
+    public void OnSliderChanged()
     {
-        valueText.text = value.ToString();
-    }*/
+        valueText.text = "Power / " + current_power.ToString();
+    }
 
     public void click_Attack()
     {
