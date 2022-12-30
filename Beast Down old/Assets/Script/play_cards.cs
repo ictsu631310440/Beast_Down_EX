@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Threading.Tasks;
 
 public class play_cards : MonoBehaviour
 {
@@ -19,10 +20,10 @@ public class play_cards : MonoBehaviour
 
     public Transform[] cardSlots; // ตำแหน่งที่วางการ์ด(ไม่ได้บอกลำดับ)
     public static bool[] availableCaedInDeck = new bool[] { true, true, true, true, true }; //ตำแหน่งที่วางการ์ดว่างหรือไม่
-    public Text deckSizeText; //จำนวนการที่เหลือใน deck
+    public Text deckSizeText; //ข้อความจำนวนการที่เหลือใน deck
 
     public static int hitcard = 0; //จับการใบที่เท่าไร(มีการเปลี่ยนแปลงทุกครั้งที่เลือกการ์ด)
-    public static int positionchoosecard; //ตำแหน่งที่จับการ์ด
+    public static int positionchoosecard; //ตำแหน่งที่จับการ์ดล่าสุด
 
     public GameObject[] number;//สัญฃลักษณ์ตัวเลข 1-5
     public Transform[] numSlotsAll; //ตำแหน่งที่วาง สัญฃลักษณ์ตัวเลข
@@ -47,7 +48,7 @@ public class play_cards : MonoBehaviour
                     availableCaedInDeck[i] = false;
                     deck.Remove(randCard);
                     play.Add(randCard);
-                    numAvailableCaed = i;
+                    numAvailableCaed = i;//ยังไม่ได้ใช้
                     return;
                 }
             }
@@ -64,23 +65,19 @@ public class play_cards : MonoBehaviour
             if (sequenceCardOneToFive[i] == 1)
             {
                 moveCard(numCard, play[i], cardPlay);
+
+                wait(2,i);
+
             }
-        }
-        changeNum();//เปลี่ยนลำดับเลือก
-        updateNum();//อับเดดลำดับการ์ดที่เลือก
-        showsequenceCardOneToFive();
+        }   
     }
-    public void discard()
+    public async void wait(int s,int i)
     {
-        for (int i = 0; i < 5; i++)
-        {
-            if (sequenceCardOneToFive[i] == 1)
-            {
-                play[i].transform.position = cardPlayed.position;
-                playedDeck.Add(play[i]);
-                play.Remove(play[i]);
-            }
-        }
+        await Task.Delay((int)(s * 1000));
+
+        play[i].transform.position = cardPlayed.position;
+        playedDeck.Add(play[i]);
+        play.Remove(play[i]);
     }
     public void changeNum()
     {
@@ -91,22 +88,20 @@ public class play_cards : MonoBehaviour
                 sequenceCardOneToFive[i] = sequenceCardOneToFive[i] - 1;
             }
         }
+        willruncard = false;
         hitcard--;
     }
     public void updateNum()
     {
         for (int j = 0; j < 5; j++)
         {
-            if (sequenceCardOneToFive[j] != 0)//แสดงว่าเลือกอยู่
+            if (sequenceCardOneToFive[j] != 0 )//แสดงว่าเลือกอยู่
             {
                 number[sequenceCardOneToFive[j] - 1].transform.position = numSlotsAll[j].position;
             }
-            else if (sequenceCardOneToFive[j] == 0)//เอาเลขที่ไม่ได้เลือกออกนอกเจอ
+            else //เอาเลขที่ไม่ได้เลือกออกนอกเจอ
             {
-                for (int i = 4; i > hitcard - 1; i--)
-                {
-                    number[i].transform.position = numSlotsAll[5].position;//นอกจอ
-                }
+                number[j].transform.position = numSlotsAll[5].position;//นอกจอ
             }
         }
     }
@@ -133,25 +128,43 @@ public class play_cards : MonoBehaviour
         hitcard = 0;
         sequenceCardOneToFive = new int[] { 0, 0, 0, 0, 0 };
         availableCaedInDeck = new bool[] { true, true, true, true, true };
+
+        for (int i = 0; i < 5; i++)
+        {
+            DrawCard();
+        }
     }
     void Update()
     {
-        //if (availableCaedInDeck.Length <= 0)
-        //{
-        //    ShuffleCaed();
-        //}
         updateNum();
         deckSizeText.text = deck.Count.ToString(); // อับเดดจำนวนการ์ดที่เหลือใน deck
 
         if (willruncard)
         {
-            runCard();
             willruncard = false;
-            availableCaedInDeck[numAvailableCaed] = true; //ทำให้ตำแหน่งว่าการ์ดว่าง(ไม่ได้บอกว่าลำดับที่เท่าไร) // ต้องมาแก้ทีหลัง
+            Debug.Log("hi");
+            runCard();
+            changeNum();//เปลี่ยนลำดับเลือก
+            showsequenceCardOneToFive();
 
+         //   availableCaedInDeck[numAvailableCaed] = true; //ทำให้ตำแหน่งว่าการ์ดว่าง(ไม่ได้บอกว่าลำดับที่เท่าไร) // ต้องมาแก้ทีหลัง
+
+            //discard();
             Debug.Log("bye");
-            discard();
+
             MainCharacterScript.getzoom = false;
         }
+
+        //if (availableCaedInDeck.Length <= 0)
+        //{
+        //    ShuffleCaed();
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            showsequenceCardOneToFive();
+            updateNum();
+        }
+        return;
     }
 }

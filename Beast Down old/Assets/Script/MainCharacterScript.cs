@@ -24,10 +24,12 @@ public class MainCharacterScript : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
-        if (other.gameObject.tag == "enemy" && enemyBasic.getdamage)
+        if (other.gameObject.tag == "enemy")
         {
-            Destroy(other.gameObject);
-            enemyBasic.getdamage = false;
+            //play_cards.willruncard = false;
+            //Destroy(other.gameObject,0.5f);
+            //play_cards.willruncard = false;
+            //Destroy(other.gameObject);
         }
     }
     public void zoomin()
@@ -52,9 +54,10 @@ public class MainCharacterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hpBar.value = HP;
-        hptext.text = "HP : " + HP.ToString();
-        Time.timeScale = _SpeedTime;
+        hpBar.value = HP; //บอกเลือดที่หลอด
+        hptext.text = "HP : " + HP.ToString(); //บอกเลือดตัวเลข
+        Time.timeScale = _SpeedTime; // ความเร็วของเวลา
+
         if (Input.GetKeyDown(KeyCode.W) || getzoom)
         {
             zoomin();

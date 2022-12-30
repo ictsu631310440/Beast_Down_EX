@@ -6,33 +6,37 @@ public class enemyBasic : MonoBehaviour
 {
     // Start is called before the first frame update
     public int HPenemy = 6;
-    public static bool die = false;
+    public bool die = false;
     public GameObject enemywilldie;
-    public static bool getdamage = false;
+
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && getdamage == false)
+        if (other.gameObject.tag == "Player")
         {
             if (play_cards.sequenceCardOneToFive[0] == 0 && play_cards.sequenceCardOneToFive[1] == 0 && play_cards.sequenceCardOneToFive[2] == 0
-                && play_cards.sequenceCardOneToFive[3] == 0 && play_cards.sequenceCardOneToFive[4] == 0 )//ไม่ได้เลือกการ์ด
+                && play_cards.sequenceCardOneToFive[3] == 0 && play_cards.sequenceCardOneToFive[4] == 0 && die == false)//ไม่ได้เลือกการ์ด
             {
                 MainCharacterScript.HP = MainCharacterScript.HP - HPenemy;
-                getdamage = true;
+                die = true;
+                Debug.Log("-6 HP");
+                Destroy(enemywilldie, 0.5f);
             }
-            else
+            else if ((play_cards.sequenceCardOneToFive[0] != 0 || play_cards.sequenceCardOneToFive[1] != 0 || play_cards.sequenceCardOneToFive[2] != 0
+                || play_cards.sequenceCardOneToFive[3] != 0 || play_cards.sequenceCardOneToFive[4] != 0) && die == false)
             {
+                die = true;
+                Debug.Log("playcard");
                 play_cards.willruncard = true;
+                Destroy(enemywilldie, 0.5f);
             }
         }
     }
     void Start()
     {
-        //enemyHitPlayer = true;
-        //outenemy = true;
+
     }
 
-    // Update is called once per frame
     void Update()
     {
 
