@@ -6,7 +6,7 @@ public class enemyBasic : MonoBehaviour
 {
     // Start is called before the first frame update
     public int HPenemy = 6;
-    public bool die = false;
+    bool die = false;
     public GameObject enemywilldie;
 
 
@@ -26,7 +26,6 @@ public class enemyBasic : MonoBehaviour
                 || play_cards.sequenceCardOneToFive[3] != 0 || play_cards.sequenceCardOneToFive[4] != 0) && die == false)
             {
                 die = true;
-                Debug.Log("playcard");
                 play_cards.willruncard = true;
                 Destroy(enemywilldie, 0.5f);
             }
