@@ -9,21 +9,34 @@ public class chooseCard1 : MonoBehaviour
     
     public void OnMouseDown()
     {
-        if (play_cards.positionchoosecard[i - 1] != i)
+        if (play_cards.sequenceCardOneToFive[i - 1] == 0)//มีการเลือกมาก่อนไหม
         {
-            play_cards.hitcard++;
-            play_cards.sequenceCardOneToFive[i - 1] = play_cards.hitcard; //ระบุตำแหน่ง
-
-            play_cards.positionchoosecard[i - 1] = i; //ลำดับการกด
-            
+            choose();
         }
         else
         {
-            //play_cards.hitcard--;
-            play_cards.sequenceCardOneToFive[i - 1] = 0;
+            if (play_cards.sequenceCardOneToFive[i - 1] == play_cards.hitcard -1 )//เลือกซ้ำ
+            {
+                dont_choose();
+            }
+            else //เลือกไม่ซ้ำแต่มีการเลือกไว้แล้ว
+            {
 
-            play_cards.positionchoosecard[i - 1] = 0;
+            }
         }
+    }
+    public void choose()
+    {
+        play_cards.sequenceCardOneToFive[i - 1] = play_cards.hitcard; //ระบุตำแหน่ง
+        play_cards.hitcard++;
+    }
+    public void dont_choose()
+    {
+        if (play_cards.hitcard >= 1)
+        {
+            play_cards.hitcard--;
+        }
+        play_cards.sequenceCardOneToFive[i - 1] = 0;
     }
     void Start()
     {

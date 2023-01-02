@@ -23,7 +23,6 @@ public class play_cards : MonoBehaviour
     public Text deckSizeText; //ข้อความจำนวนการที่เหลือใน deck
 
     public static int hitcard = 0; //จับการใบที่เท่าไร(มีการเปลี่ยนแปลงทุกครั้งที่เลือกการ์ด)
-    public static List<int> positionchoosecard; //ตำแหน่งที่จับการ์ดล่าสุด
 
     public GameObject[] number;//สัญฃลักษณ์ตัวเลข 1-5
     public Transform[] numSlotsAll; //ตำแหน่งที่วาง สัญฃลักษณ์ตัวเลข
@@ -91,7 +90,10 @@ public class play_cards : MonoBehaviour
                 sequenceCardOneToFive[i] = sequenceCardOneToFive[i] - 1;
             }
         }
-        hitcard--;
+        if (hitcard >= 1)
+        {
+            hitcard--;
+        }
     }
     public void updateNum()
     {
@@ -114,10 +116,6 @@ public class play_cards : MonoBehaviour
             Debug.Log("sequenceCardOneToFive[" + i + "] : " + sequenceCardOneToFive[i]);
         }        
         Debug.Log("hitcard : " + hitcard);
-        for (int i = 0; i < 5; i++)
-        {
-            Debug.Log("availableCaedInDeck [" + i + "]: " + availableCaedInDeck[i]);
-        }
     }
     public void ShuffleCaed()
     {
@@ -130,8 +128,7 @@ public class play_cards : MonoBehaviour
 
     void Start()
     {
-        positionchoosecard = new List<int>() { 0, 0, 0, 0, 0 };
-        hitcard = 0;
+        hitcard = 1;
         sequenceCardOneToFive = new int[] { 0, 0, 0, 0, 0 };
         availableCaedInDeck = new bool[] { true, true, true, true, true };
 
