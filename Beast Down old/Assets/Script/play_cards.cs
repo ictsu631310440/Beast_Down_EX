@@ -20,7 +20,7 @@ public class play_cards : MonoBehaviour
 
     public Transform[] cardSlots; // ตำแหน่งที่วางการ์ด(ไม่ได้บอกลำดับ)
     public static bool[] availableCaedInDeck = new bool[] { true, true, true, true, true }; //ตำแหน่งที่วางการ์ดว่างหรือไม่
-    public Text deckSizeText; //ข้อความจำนวนการที่เหลือใน deck
+    public TextMeshProUGUI deckSizeText; //ข้อความจำนวนการที่เหลือใน deck
 
     public static int hitcard = 0; //จับการใบที่เท่าไร(มีการเปลี่ยนแปลงทุกครั้งที่เลือกการ์ด)
 
