@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7869baba-f705-40df-be5d-dd332e51e19f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/New Folder.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Folder/MainCharator.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Folder/MainCharator.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Folder/New Material.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Folder/New Material.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Folder/enemy.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Folder/enemy.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Folder/fack_black.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Folder/fack_black.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Folder/map Material.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Folder/map Material.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Pfea.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Pfea/enemyTest.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Pfea/enemyTest.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/MainCharacterScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/MainCharacterScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/System_Power.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/System_Power.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2KBerUrDefW6IaE6qAIAKIZEBKJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/thanakrit/Library/Application Support/JetBrains/Rider2022.3/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/thanakrit/Library/Application Support/JetBrains/Rider2022.3/resharper-host/SourcesCache&quot;,
+      &quot;/Users/thanakrit/.local/share/Symbols/src&quot;
+    ]
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7869baba-f705-40df-be5d-dd332e51e19f" name="Changes" comment="" />
+      <created>1673452602071</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1673452602071</updated>
+      <workItem from="1673452604085" duration="1061000" />
+      <workItem from="1673487532275" duration="547000" />
+      <workItem from="1673545328542" duration="2639000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

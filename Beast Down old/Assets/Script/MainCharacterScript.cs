@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainCharacterScript : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class MainCharacterScript : MonoBehaviour
     public static bool getzoom = false;
     public Slider hpBar;
     public static int HP = 30;
-    public Text hptext;
+    public TextMeshProUGUI hptext;
 
     //test
     public bool running = false;

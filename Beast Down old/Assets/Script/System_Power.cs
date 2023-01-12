@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class System_Power : MonoBehaviour
 {
-    [SerializeField] public TextMeshProUGUI valueText;
-    [SerializeField] public Slider powerSlider;
+    [Header("Point Settings")]
+    [SerializeField]private static int current_power = 0;
+    [SerializeField]private static int Up_point = 50;
+    [SerializeField]private static int Down_point = 100;
 
     [Space]
-
-    [Header("Point Settings")]
-    public static int current_power = 0;
-    public static int Up_point = 50;
-    public static int Down_point = 100;
     
+    [SerializeField]private TextMeshProUGUI valueText;
+    [SerializeField]private Slider powerSlider;
 
+    public void Start()
+    {
+        OnSliderChanged();
+    }
+    
     public void OnSliderChanged()
     {
         valueText.text = "Power / " + current_power.ToString();
