@@ -2,33 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7869baba-f705-40df-be5d-dd332e51e19f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/New Folder.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Folder/MainCharator.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Folder/MainCharator.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Folder/New Material.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Folder/New Material.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Folder/enemy.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Folder/enemy.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Folder/fack_black.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Folder/fack_black.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Folder/map Material.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Folder/map Material.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Pfea.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Pfea/enemyTest.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Pfea/enemyTest.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/MainCharacterScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/MainCharacterScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/System_Power.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/System_Power.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.7/Editor/Core/VFXLibrary.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -64,7 +47,7 @@
       <updated>1673452602071</updated>
       <workItem from="1673452604085" duration="1061000" />
       <workItem from="1673487532275" duration="547000" />
-      <workItem from="1673545328542" duration="2639000" />
+      <workItem from="1673545328542" duration="2957000" />
     </task>
     <servers />
   </component>
