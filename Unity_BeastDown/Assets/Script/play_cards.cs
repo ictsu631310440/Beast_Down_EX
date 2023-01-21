@@ -144,9 +144,8 @@ public class play_cards : MonoBehaviour
     }
     void Update()
     {
-        //showsequenceCardOneToFive();
-        updateNum(); //ดับเดดตัวเลขที่แสดง
         deckSizeText.text = deck.Count.ToString(); // อับเดดจำนวนการ์ดที่เหลือใน deck
+        updateNum(); //ดับเดดตัวเลขที่แสดง
 
         if (deck.Count <= 0)
         {

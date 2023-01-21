@@ -12,14 +12,12 @@ public class chooseCard1 : MonoBehaviour
         if (play_cards.sequenceCardOneToFive[i - 1] == 0)//มีการเลือกมาก่อนไหม
         {
             choose();
-            dataCard.addDamages = true;
         }
         else
         {
             if (play_cards.sequenceCardOneToFive[i - 1] == play_cards.hitcard -1 )//เลือกซ้ำ
             {
                 dont_choose();
-                dataCard.addDamages = false;
             }
             else //เลือกไม่ซ้ำแต่มีการเลือกไว้แล้ว
             {

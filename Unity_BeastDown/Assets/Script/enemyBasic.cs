@@ -27,7 +27,6 @@ public class enemyBasic : MonoBehaviour
             {
                 play_cards.willruncard = true;
 
-                dataCard.addDamages = true;
 
                 HPenemy = HPenemy - playerDamage.attack_and_defens;
 

@@ -17,6 +17,9 @@ public class playerDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(attack_and_defens);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("attack_and_defens : " + attack_and_defens);
+        }
     }
 }
