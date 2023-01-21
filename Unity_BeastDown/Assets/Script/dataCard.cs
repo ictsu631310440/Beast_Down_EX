@@ -8,6 +8,7 @@ public class dataCard : MonoBehaviour
     public int dodge ;
     public int type ;//0 = N ,1 = P ,2 = S , 3 = I
     public int heal ;
+    public bool speed;
 
     private void OnTriggerStay(Collider other)
     {
@@ -30,6 +31,7 @@ public class dataCard : MonoBehaviour
         playerDamage.dodge = dodge;
         playerDamage.type = type;
         playerDamage.heal = heal;
+        playerDamage.speed = speed;
     }
     public void delete_data()
     {
@@ -37,6 +39,7 @@ public class dataCard : MonoBehaviour
         playerDamage.dodge = 0;
         playerDamage.type = 0;
         playerDamage.heal = 0;
+        playerDamage.speed = false;
     }
     void Start()
     {
