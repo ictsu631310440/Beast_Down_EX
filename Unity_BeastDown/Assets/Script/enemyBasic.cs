@@ -30,22 +30,26 @@ public class enemyBasic : MonoBehaviour
             {
                 play_cards.willruncard = true;
 
-                if (playerDamage.attack_and_defens > 0)
+                if (!speed || (speed && playerDamage.speed))
                 {
-                    if (lost_type == playerDamage.type)
+                    if (playerDamage.attack_and_defens > 0)
                     {
-                        HPenemy = HPenemy - (playerDamage.attack_and_defens * 2);
-                    }
-                    else if (lost_type != playerDamage.type)
+                        if (lost_type == playerDamage.type)
+                        {
+                            HPenemy = HPenemy - (playerDamage.attack_and_defens * 2);
+                        }
+                        else if (lost_type != playerDamage.type)
+                        {
+                            HPenemy = HPenemy - playerDamage.attack_and_defens;
+                        }
+                    }//เป็นการ์ดโจมตีหรือป้องกัน
+                    if (playerDamage.dodge > HPenemy)
                     {
-                        HPenemy = HPenemy - playerDamage.attack_and_defens;
-                    }
-                }//เป็นการ์ดโจมตี
-                else if (playerDamage.dodge > HPenemy)
-                {
-                    HPenemy = 0;
-                }//เป็นการ์ดหลบ
-                else if (playerDamage.heal > 0)
+                        HPenemy = 0;
+                    }//เป็นการ์ดหลบ
+                }//มอนที่ไม่ใช่แบบเร็ว
+
+                if (playerDamage.heal > 0)
                 {
                     MainCharacterScript.HP = MainCharacterScript.HP - HPenemy;
                     HPenemy = 0;

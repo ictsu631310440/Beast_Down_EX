@@ -10,37 +10,26 @@ public class dataCard : MonoBehaviour
     public int heal ;
     public bool speed;
 
-    private void OnTriggerStay(Collider other)
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "play")
         {
-            Debug.Log("attack_and_defens : " + playerDamage.attack_and_defens);
             add_data();
-            Debug.Log("attack_and_defens : " + playerDamage.attack_and_defens);
-        }
-        if (other.gameObject.tag != "play")
-        {
-            Debug.Log("attack_and_defens : " + playerDamage.attack_and_defens);
-            delete_data();
-            Debug.Log("attack_and_defens : " + playerDamage.attack_and_defens);
         }
     }
     public void add_data()
     {
-        playerDamage.attack_and_defens = attack_and_defens;
+
+            playerDamage.attack_and_defens = attack_and_defens;
+
         playerDamage.dodge = dodge;
         playerDamage.type = type;
         playerDamage.heal = heal;
         playerDamage.speed = speed;
+
     }
-    public void delete_data()
-    {
-        playerDamage.attack_and_defens = 0;
-        playerDamage.dodge = 0;
-        playerDamage.type = 0;
-        playerDamage.heal = 0;
-        playerDamage.speed = false;
-    }
+
     void Start()
     {
 

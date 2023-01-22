@@ -13,6 +13,7 @@ public class MainCharacterScript : MonoBehaviour
     public static float _SpeedTime = 1.0f;
     public static bool getzoom = false;
     public Slider hpBar;
+    public int HPset = 30;
     public static int HP = 30;
     public TextMeshProUGUI hptext;
 
@@ -24,13 +25,6 @@ public class MainCharacterScript : MonoBehaviour
         if (other.gameObject.tag == "map")
         {
             Destroy(other.gameObject);
-        }
-        if (other.gameObject.tag == "enemy")
-        {
-            //play_cards.willruncard = false;
-            //Destroy(other.gameObject,0.5f);
-            //play_cards.willruncard = false;
-            //Destroy(other.gameObject);
         }
     }
     public void zoomin()
@@ -47,7 +41,7 @@ public class MainCharacterScript : MonoBehaviour
     }
     void Start()
     {
-        HP = 30;
+        HP = HPset;
         _SpeedTime = 1.0f;
         _camera1.SetActive(true);
     }

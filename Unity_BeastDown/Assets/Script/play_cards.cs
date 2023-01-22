@@ -164,7 +164,7 @@ public class play_cards : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            showsequenceCardOneToFive();
+            //showsequenceCardOneToFive();
         }
         return;
     }

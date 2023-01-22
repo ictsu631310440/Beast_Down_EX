@@ -9,7 +9,7 @@ public class playerDamage : MonoBehaviour
     public static int type = 0;//0 = N ,1 = P ,2 = S , 3 = I
     public static int heal = 0;
     public static bool speed;
-    // Start is called before the first frame update
+
     void Start()
     {
         
@@ -18,9 +18,13 @@ public class playerDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log("attack_and_defens : " + attack_and_defens);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
         }
     }
 }
