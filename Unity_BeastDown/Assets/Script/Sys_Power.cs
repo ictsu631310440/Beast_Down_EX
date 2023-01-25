@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 
-public class System_Power : MonoBehaviour
+public class Sys_Power : MonoBehaviour
 {
     [Header("Point Settings")]
     [SerializeField]private static int current_power = 0;
