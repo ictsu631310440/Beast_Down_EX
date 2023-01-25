@@ -42,7 +42,7 @@ public class play_cards : MonoBehaviour
             {
                 if (availableCaedInDeck[i] == true)
                 {
-                    moveCard(numCard, randCard, cardSlots[i]);
+                    moveCard(randCard, cardSlots[i]);
                     availableCaedInDeck[i] = false;
                     play[i] = randCard;
                     deck.Remove(randCard);
@@ -52,7 +52,7 @@ public class play_cards : MonoBehaviour
             }
         }
     }
-    public void moveCard(int num, GameObject card, Transform go)
+    public void moveCard(GameObject card, Transform go)
     {
         card.transform.position = go.position;
     }
@@ -62,7 +62,7 @@ public class play_cards : MonoBehaviour
         {
             if (sequenceCardOneToFive[i] == 1)
             {
-                moveCard(numCard, play[i], cardPlay);
+                moveCard(play[i], cardPlay);
                 wait_to_discard(2,i);
 
                 availableCaedInDeck[i] = true;
@@ -137,12 +137,15 @@ public class play_cards : MonoBehaviour
             play.Add(null);
             DrawCard();
         }
+        for (int i = 0; i < deck.Count; i++)
+        {
+            moveCard(deck[i], cardDeck);
+        }
     }
     void Update()
     {
-        //showsequenceCardOneToFive();
-        updateNum(); //ดับเดดตัวเลขที่แสดง
         deckSizeText.text = deck.Count.ToString(); // อับเดดจำนวนการ์ดที่เหลือใน deck
+        updateNum(); //ดับเดดตัวเลขที่แสดง
 
         if (deck.Count <= 0)
         {
@@ -161,7 +164,7 @@ public class play_cards : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            showsequenceCardOneToFive();
+            //showsequenceCardOneToFive();
         }
         return;
     }

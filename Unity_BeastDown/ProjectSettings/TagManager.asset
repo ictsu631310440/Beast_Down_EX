@@ -6,6 +6,8 @@ TagManager:
   tags:
   - map
   - enemy
+  - play
+  - outplay
   layers:
   - Default
   - TransparentFX

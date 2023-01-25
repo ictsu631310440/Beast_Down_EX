@@ -19,10 +19,6 @@ public class chooseCard1 : MonoBehaviour
             {
                 dont_choose();
             }
-            else //เลือกไม่ซ้ำแต่มีการเลือกไว้แล้ว
-            {
-
-            }
         }
     }
     public void choose()
