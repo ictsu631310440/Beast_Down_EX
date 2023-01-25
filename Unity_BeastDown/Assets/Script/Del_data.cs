@@ -8,6 +8,10 @@ public class Del_data : MonoBehaviour
     {
         if (other.gameObject.tag == "play")
         {
+            if (playerDamage.copy)
+            {
+                delete_L();
+            }
             delete_data();
         }
     }
@@ -18,8 +22,22 @@ public class Del_data : MonoBehaviour
         playerDamage.type = 0;
         playerDamage.heal = 0;
         playerDamage.speed = false;
+        playerDamage.copy = false;
+        playerDamage.plus = 0;
+        playerDamage.multiply = 1;
     }
-void Start()
+    public void delete_L()
+    {
+        playerDamage.Lattack_and_defens = 0;
+        playerDamage.Ldodge = 0;
+        playerDamage.Ltype = 0;
+        playerDamage.Lheal = 0;
+        playerDamage.Lspeed = false;
+        playerDamage.copy = false;
+        playerDamage.Lplus = 0;
+        playerDamage.Lmultiply = 1;
+    }
+    void Start()
     {
         
     }

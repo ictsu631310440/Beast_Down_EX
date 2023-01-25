@@ -30,44 +30,53 @@ public class enemyBasic : MonoBehaviour
             {
                 play_cards.willruncard = true;
 
-                if (!speed || (speed && playerDamage.speed))
+                if (!speed || playerDamage.speed)
                 {
                     if (playerDamage.attack_and_defens > 0)
                     {
                         if (lost_type == playerDamage.type)
                         {
-                            HPenemy = HPenemy - (playerDamage.attack_and_defens * 2);
+                            HPenemy = HPenemy - (playerDamage.attack_and_defens * 2 * playerDamage.Lmultiply) + playerDamage.Lplus;
                         }
                         else if (lost_type != playerDamage.type)
                         {
-                            HPenemy = HPenemy - playerDamage.attack_and_defens;
+                            HPenemy = HPenemy - (playerDamage.attack_and_defens * playerDamage.Lmultiply) + playerDamage.Lplus;
                         }
                     }//เป็นการ์ดโจมตีหรือป้องกัน
                     if (playerDamage.dodge > HPenemy)
                     {
                         HPenemy = 0;
                     }//เป็นการ์ดหลบ
-                }//มอนที่ไม่ใช่แบบเร็ว
+                }//มอนที่ไม่ใช่แบบเร็ว หรือเราใช้การ์ดเร็ว
 
                 if (playerDamage.heal > 0)
                 {
                     MainCharacterScript.HP = MainCharacterScript.HP - HPenemy;
                     HPenemy = 0;
-                    MainCharacterScript.HP = MainCharacterScript.HP + playerDamage.heal;
+                    MainCharacterScript.HP = MainCharacterScript.HP + (playerDamage.heal * playerDamage.Lmultiply) + playerDamage.Lplus;
                 }//เป็นการ์ดรักษา หมายเหตุ โดนตีก่อนถึงรักษา
 
                 if (HPenemy > 0)
                 {
                     MainCharacterScript.HP = MainCharacterScript.HP - HPenemy;
-                }
+                }//ถ้ามอนไม่ตาย
 
-                playerDamage.attack_and_defens = 0;
+
+                playerDamage.Lattack_and_defens = playerDamage.attack_and_defens;
+                playerDamage.Ldodge = playerDamage.dodge;
+                playerDamage.Ltype = playerDamage.type;
+                playerDamage.Lheal = playerDamage.heal;
+                playerDamage.Lspeed = playerDamage.speed;                               //เก็บค่าล่าสุด
+
+                playerDamage.Lplus = playerDamage.plus;
+                playerDamage.Lmultiply = playerDamage.multiply;                         //เก็บค่าพิเศษ                   
 
                 die = true;
                 Destroy(enemywilldie, 0.5f);
             }
         }
     }
+
     void Start()
     {
 
@@ -75,6 +84,10 @@ public class enemyBasic : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log("attack_can_do : " + ((playerDamage.attack_and_defens * playerDamage.Lmultiply) + playerDamage.Lplus));
+        }
+        
     }
 }
