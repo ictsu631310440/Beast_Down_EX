@@ -2,29 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyBasic : MonoBehaviour
+public class enemyBig : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public int HPenemy = 6;
+    public int HPenemy = 12;
     bool die = false;
     public int lost_type;
-    public bool speed = false;
+    int ontriggerwithplay = 0;
     public bool isGround = false;
     public int up = 20;
     public int back = 30;
 
     public GameObject enemywilldie;
 
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "map")
+        if (other.gameObject.tag== "map")
         {
             isGround = true;
         }
         if (other.gameObject.tag == "Player")
         {
-            
             if (play_cards.sequenceCardOneToFive[0] == 0 && play_cards.sequenceCardOneToFive[1] == 0 && play_cards.sequenceCardOneToFive[2] == 0
                 && play_cards.sequenceCardOneToFive[3] == 0 && play_cards.sequenceCardOneToFive[4] == 0 && die == false && isGround)//ไม่ได้เลือกการ์ด
             {
@@ -37,25 +34,29 @@ public class enemyBasic : MonoBehaviour
             {
                 isGround = false;
                 play_cards.willruncard = true;
-                GetComponent<Rigidbody>().AddForce(new Vector3(back, up, 0));
-                if (!speed || playerDamage.speed)
+
+                if (ontriggerwithplay <= 2)
                 {
-                    if (playerDamage.attack_and_defens > 0)
+                    GetComponent<Rigidbody>().AddForce(new Vector3(back, up, 0));
+                    ontriggerwithplay++;
+                }
+
+                if (playerDamage.attack_and_defens > 0)
+                {
+                    if (lost_type == playerDamage.type)
                     {
-                        if (lost_type == playerDamage.type)
-                        {
-                            HPenemy = HPenemy - (playerDamage.attack_and_defens * 2 * playerDamage.Lmultiply) + playerDamage.Lplus;
-                        }
-                        else if (lost_type != playerDamage.type)
-                        {
-                            HPenemy = HPenemy - (playerDamage.attack_and_defens * playerDamage.Lmultiply) + playerDamage.Lplus;
-                        }
-                    }//เป็นการ์ดโจมตีหรือป้องกัน
-                    if (playerDamage.dodge > HPenemy)
+                        HPenemy = HPenemy - (playerDamage.attack_and_defens * 2 * playerDamage.Lmultiply) + playerDamage.Lplus;
+                    }
+                    else if (lost_type != playerDamage.type)
                     {
-                        HPenemy = 0;
-                    }//เป็นการ์ดหลบ
-                }//มอนที่ไม่ใช่แบบเร็ว หรือเราใช้การ์ดเร็ว
+                        HPenemy = HPenemy - (playerDamage.attack_and_defens * playerDamage.Lmultiply) + playerDamage.Lplus;
+                    }
+                }//เป็นการ์ดโจมตีหรือป้องกัน
+                if (playerDamage.dodge > HPenemy)
+                {
+                    HPenemy = 0;
+                }//เป็นการ์ดหลบ
+
 
                 if (playerDamage.heal > 0)
                 {
@@ -63,13 +64,6 @@ public class enemyBasic : MonoBehaviour
                     HPenemy = 0;
                     MainCharacterScript.HP = MainCharacterScript.HP + (playerDamage.heal * playerDamage.Lmultiply) + playerDamage.Lplus;
                 }//เป็นการ์ดรักษา หมายเหตุ โดนตีก่อนถึงรักษา
-
-                if (HPenemy > 0)
-                {
-                    MainCharacterScript.HP = MainCharacterScript.HP - HPenemy;
-                    HPenemy = 0;
-                }//ถ้ามอนไม่ตาย
-
 
                 playerDamage.Lattack_and_defens = playerDamage.attack_and_defens;
                 playerDamage.Ldodge = playerDamage.dodge;
@@ -79,6 +73,12 @@ public class enemyBasic : MonoBehaviour
 
                 playerDamage.Lplus = playerDamage.plus;
                 playerDamage.Lmultiply = playerDamage.multiply;                         //เก็บค่าพิเศษ                   
+
+                if (HPenemy > 0 && ontriggerwithplay >= 2)
+                {
+                    MainCharacterScript.HP = MainCharacterScript.HP - HPenemy;
+                    HPenemy = 0;
+                }//ถ้ามอนไม่ตาย
             }
         }
     }

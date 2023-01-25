@@ -10,6 +10,7 @@ public class play_cards : MonoBehaviour
     public List<GameObject> deck = new List<GameObject>(); //deck
     public static GameObject randCard;
 
+    public List<GameObject> On_hand = new List<GameObject>();//บนมือ
     public List<GameObject> play = new List<GameObject>();//กำลังเล่น
 
     public Transform cardDeck; //ตำแหน่งว่าการ์ดใน deck
@@ -31,6 +32,7 @@ public class play_cards : MonoBehaviour
     public static int numCard; //การ์ดใบที่เท่าไร
 
     public static bool willruncard = false;
+    public static bool willruncard2time = false;
 
     public void DrawCard()
     {
@@ -42,9 +44,9 @@ public class play_cards : MonoBehaviour
             {
                 if (availableCaedInDeck[i] == true)
                 {
-                    moveCard(randCard, cardSlots[i]);
+                    randCard.transform.position = cardSlots[i].position;
                     availableCaedInDeck[i] = false;
-                    play[i] = randCard;
+                    On_hand[i] = randCard;
                     deck.Remove(randCard);
 
                     return;
@@ -52,33 +54,32 @@ public class play_cards : MonoBehaviour
             }
         }
     }
-    public void moveCard(GameObject card, Transform go)
-    {
-        card.transform.position = go.position;
-    }
     public void runCard()//ย้ายการ์ด
     {
         for (int i = 0; i < 5; i++)
         {
             if (sequenceCardOneToFive[i] == 1)
             {
-                moveCard(play[i], cardPlay);
-                wait_to_discard(2,i);
-
+                On_hand[i].transform.position = cardPlay.position;
+                play.Add(On_hand[i]);
+                On_hand[i] = null;
+                playedDeck.Add(play[0]);
                 availableCaedInDeck[i] = true;
 
+                wait_show_card(1);
+                wait_Draw_card(1);
             }
         }
     }
-    public async void wait_to_discard(int s,int i)
+    public async void wait_show_card(int s)
     {
         await Task.Delay((int)(s * 1000));
-
-        play[i].transform.position = cardPlayed.position;
-        playedDeck.Add(play[i]);
-        play[i] = null;
-
-        await Task.Delay((int)(10));
+        play[0].transform.position = cardPlayed.position;
+        play.Remove(play[0]);
+    }
+    public async void wait_Draw_card(int s)
+    {
+        await Task.Delay((int)(s * 500));
         DrawCard();
     }
     public void changeNum()
@@ -134,16 +135,16 @@ public class play_cards : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            play.Add(null);
+            On_hand.Add(null);
             DrawCard();
         }
         for (int i = 0; i < deck.Count; i++)
         {
-            moveCard(deck[i], cardDeck);
+            deck[i].transform.position = cardDeck.position;
         }
     }
     void Update()
-    {
+    {//อนิเมชั่นการ์ดตอนจั่ว
         deckSizeText.text = deck.Count.ToString(); // อับเดดจำนวนการ์ดที่เหลือใน deck
         updateNum(); //ดับเดดตัวเลขที่แสดง
 
@@ -160,11 +161,6 @@ public class play_cards : MonoBehaviour
             changeNum(); //เปลี่ยนลำดับเลือก
 
             MainCharacterScript.getzoom = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //showsequenceCardOneToFive();
         }
         return;
     }

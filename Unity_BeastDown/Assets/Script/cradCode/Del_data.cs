@@ -39,7 +39,8 @@ public class Del_data : MonoBehaviour
     }
     void Start()
     {
-        
+        delete_data();
+        delete_L();
     }
 
     // Update is called once per frame

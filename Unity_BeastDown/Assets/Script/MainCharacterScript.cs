@@ -26,6 +26,10 @@ public class MainCharacterScript : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+        if (other.gameObject.tag == "enemy")
+        {
+
+        }
     }
     public void zoomin()
     {
@@ -53,15 +57,23 @@ public class MainCharacterScript : MonoBehaviour
         hptext.text = "HP : " + HP.ToString(); //บอกเลือดตัวเลข
         Time.timeScale = _SpeedTime; // ความเร็วของเวลา
 
-        if (Input.GetKeyDown(KeyCode.W) || getzoom)
+        if (getzoom)
         {
             zoomin();
         }
-        else if(Input.GetKeyDown(KeyCode.S) || !getzoom)
+        else if (!getzoom)
         {
             zoomout();
         }
 
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            zoomin();
+        }
+        else if(Input.GetKeyDown(KeyCode.S))
+        {
+            zoomout();
+        }
         if (Input.GetKeyDown(KeyCode.D))
         {
             running = true;
