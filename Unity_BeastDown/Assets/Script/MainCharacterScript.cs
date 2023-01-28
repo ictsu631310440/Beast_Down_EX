@@ -12,14 +12,24 @@ public class MainCharacterScript : MonoBehaviour
     public float running_speed = 6.0f;
     public static float _SpeedTime = 1.0f;
     public static bool getzoom = false;
-    public Slider hpBar;
     public int HPset = 30;
     public static int HP = 30;
+    public Slider hpBar;
     public TextMeshProUGUI hptext;
 
+    public int up = 20;
+    public int back = 30;
     //test
     public bool running = false;
+    public bool isGround = false;
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "map")
+        {
+            isGround = true;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "map")
@@ -29,6 +39,14 @@ public class MainCharacterScript : MonoBehaviour
         if (other.gameObject.tag == "enemy")
         {
 
+        }
+        if (other.gameObject.tag == "Boss")
+        {
+            if (enemyBoss.ontriggerwithplay < 2)
+            {
+                GetComponent<Rigidbody>().AddForce(new Vector3(-back, up, 0));
+            }            
+            isGround = false;
         }
     }
     public void zoomin()
@@ -49,14 +67,16 @@ public class MainCharacterScript : MonoBehaviour
         _SpeedTime = 1.0f;
         _camera1.SetActive(true);
     }
-
-    // Update is called once per frame
     void Update()
     {
         hpBar.value = HP; //บอกเลือดที่หลอด
         hptext.text = "HP : " + HP.ToString(); //บอกเลือดตัวเลข
         Time.timeScale = _SpeedTime; // ความเร็วของเวลา
 
+        if (running && isGround)
+        {
+            transform.Translate(1 * Time.deltaTime * running_speed, 0, 0);//เดินไปข้างหน้า
+        }
         if (getzoom)
         {
             zoomin();
@@ -66,13 +86,15 @@ public class MainCharacterScript : MonoBehaviour
             zoomout();
         }
 
+
+
         if (Input.GetKeyDown(KeyCode.W))
         {
-            zoomin();
+            getzoom = true;
         }
         else if(Input.GetKeyDown(KeyCode.S))
         {
-            zoomout();
+            getzoom = false;
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -82,9 +104,9 @@ public class MainCharacterScript : MonoBehaviour
         {
             running = false;
         }
-        if (running)
+        if (Input.GetKeyDown(KeyCode.Q)) 
         {
-            transform.Translate(1 * Time.deltaTime * running_speed, 0, 0);//เดินไปข้างหน้า
+            GetComponent<Rigidbody>().AddForce(new Vector3(-back, up, 0));
         }
     }
 }

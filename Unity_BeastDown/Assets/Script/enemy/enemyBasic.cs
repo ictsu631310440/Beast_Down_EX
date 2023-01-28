@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class enemyBasic : MonoBehaviour
 {
-    // Start is called before the first frame update
     public int HPenemy = 6;
     bool die = false;
     public int lost_type;
@@ -24,7 +23,6 @@ public class enemyBasic : MonoBehaviour
         }
         if (other.gameObject.tag == "Player")
         {
-            
             if (play_cards.sequenceCardOneToFive[0] == 0 && play_cards.sequenceCardOneToFive[1] == 0 && play_cards.sequenceCardOneToFive[2] == 0
                 && play_cards.sequenceCardOneToFive[3] == 0 && play_cards.sequenceCardOneToFive[4] == 0 && die == false && isGround)//ไม่ได้เลือกการ์ด
             {
@@ -55,14 +53,13 @@ public class enemyBasic : MonoBehaviour
                     {
                         HPenemy = 0;
                     }//เป็นการ์ดหลบ
+                    if (playerDamage.heal > 0)
+                    {
+                        MainCharacterScript.HP = MainCharacterScript.HP - HPenemy;
+                        HPenemy = 0;
+                        MainCharacterScript.HP = MainCharacterScript.HP + (playerDamage.heal * playerDamage.Lmultiply) + playerDamage.Lplus;
+                    }//เป็นการ์ดรักษา หมายเหตุ โดนตีก่อนถึงรักษา
                 }//มอนที่ไม่ใช่แบบเร็ว หรือเราใช้การ์ดเร็ว
-
-                if (playerDamage.heal > 0)
-                {
-                    MainCharacterScript.HP = MainCharacterScript.HP - HPenemy;
-                    HPenemy = 0;
-                    MainCharacterScript.HP = MainCharacterScript.HP + (playerDamage.heal * playerDamage.Lmultiply) + playerDamage.Lplus;
-                }//เป็นการ์ดรักษา หมายเหตุ โดนตีก่อนถึงรักษา
 
                 if (HPenemy > 0)
                 {

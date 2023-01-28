@@ -57,7 +57,6 @@ public class enemyBig : MonoBehaviour
                     HPenemy = 0;
                 }//เป็นการ์ดหลบ
 
-
                 if (playerDamage.heal > 0)
                 {
                     MainCharacterScript.HP = MainCharacterScript.HP - HPenemy;

@@ -30,7 +30,7 @@ public class playerDamage : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Debug.Log("attack_can_do : " + ((playerDamage.attack_and_defens * playerDamage.Lmultiply) + playerDamage.Lplus));
+
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {

@@ -113,9 +113,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HPenemy: 6
-  lost_type: 0
+  lost_type: 1
   speed: 0
   isGround: 0
+  up: 20
+  back: 40
   enemywilldie: {fileID: 8939462023251191714}
 --- !u!54 &1184580160036475130
 Rigidbody:

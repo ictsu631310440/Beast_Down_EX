@@ -9,6 +9,7 @@ TagManager:
   - play
   - outplay
   - big
+  - Boss
   layers:
   - Default
   - TransparentFX
