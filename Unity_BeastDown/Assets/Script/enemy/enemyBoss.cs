@@ -65,28 +65,9 @@ public class enemyBoss : MonoBehaviour
                 isGround = false;
                 play_cards.willruncard = true;
 
-                if (!F2 && !F4)
-                {
-                    NBAttack();
-                }
-                else if (F2)
-                {
-                    if (ontriggerwithplay <= 2)
-                    {
-                        ontriggerwithplay++;
-                    }
-                    else if (ontriggerwithplay > 2)
-                    {
-                        if (BossHP >= 90)
-                        {
-                            MainCharacterScript.HP = MainCharacterScript.HP - (BossATK * ChX);
-                        }
-                        ontriggerwithplay = 0;
-                    }
-                    F2Attack();
-                }
+                NBAttack();
 
-                if ((speed && !playerDamage.speed) || !F4)
+                if (speed && !playerDamage.speed)
                 {
                     MainCharacterScript.HP = MainCharacterScript.HP - BossATK;
                 }
@@ -117,48 +98,37 @@ public class enemyBoss : MonoBehaviour
         {
             if (playerDamage.attack_and_defens > 0)
             {
-                F2Attack();
+                if (playerDamage.attack_and_defens > 0)
+                {
+                    if (lost_type == 0)
+                    {
+                        if (playerDamage.attack_and_defens - BossATK > 0)
+                        {
+                            BossHP = playerDamage.attack_and_defens - BossATK;
+                        }
+                    }//บอสกัน
+                    else if (lost_type == playerDamage.type)
+                    {
+                        BossHP = BossHP - (playerDamage.attack_and_defens * 2 * playerDamage.Lmultiply) + playerDamage.Lplus;
+                    }//บอสแพ้ทาง
+                    else if (lost_type != playerDamage.type)
+                    {
+                        BossHP = BossHP - (playerDamage.attack_and_defens * playerDamage.Lmultiply) + playerDamage.Lplus;
+                    }//ตีปกติ
+                }//เป็นการ์ดโจมตีหรือป้องกัน
+                if (playerDamage.dodge > BossATK)
+                {
+
+                }//เป็นการ์ดหลบ
             }
         }
-    }//เฟสแรก
-    public void F2Attack()
-    {
-        if (playerDamage.attack_and_defens > 0)
-        {
-            if (lost_type == 0)
-            {
-                if (Random.Range(0, 10) == 1)
-                {
-
-                }//บอสหลบ 10%
-                else
-                {
-                    if (playerDamage.attack_and_defens - BossATK > 0)
-                    {
-                        BossHP = playerDamage.attack_and_defens - BossATK;
-                    }
-                }//บอสกัน
-            }
-            else if (lost_type == playerDamage.type)
-            {
-                BossHP = BossHP - (playerDamage.attack_and_defens * 2 * playerDamage.Lmultiply) + playerDamage.Lplus;
-            }
-            else if (lost_type != playerDamage.type)
-            {
-                BossHP = BossHP - (playerDamage.attack_and_defens * playerDamage.Lmultiply) + playerDamage.Lplus;
-            }
-        }//เป็นการ์ดโจมตีหรือป้องกัน
-        if (playerDamage.dodge > BossATK)
-        {
-
-        }//เป็นการ์ดหลบ
-    }
+    }//เฟสแรก //ตีปกติ
 
     void Start()
     {
-        hpBar1.transform.localScale = new(BossHP / 12, 1.5f, 1.5f);
-        hpBar2.transform.localScale = new((BossHP - 100) / 6, 1.5f, 1.5f);
-        hpBar3.transform.localScale = new((BossHP - 200) / 3, 1.5f, 1.5f);
+        hpBar1.transform.localScale = new(BossHP / 18, 1.5f, 1.5f);
+        hpBar2.transform.localScale = new((BossHP - 100) / 12, 1.5f, 1.5f);
+        hpBar3.transform.localScale = new((BossHP - 200) / 6, 1.5f, 1.5f);
         for (int i = 0; i < BG.Count; i++)
         {
             BG[i].transform.localScale = new(15.9f, 1.4f, 1.4f);
@@ -207,26 +177,26 @@ public class enemyBoss : MonoBehaviour
         }
         else if (lost_type == 1)
         {
-            lost_type0.SetActive(true);
+            lost_type0.SetActive(false);
             lost_type1.SetActive(true);
             lost_type2.SetActive(false);
             lost_type3.SetActive(false);
         }
         else if (lost_type == 2)
         {
-            lost_type0.SetActive(true);
+            lost_type0.SetActive(false);
             lost_type1.SetActive(false);
             lost_type2.SetActive(true);
             lost_type3.SetActive(false);
         }
         else if (lost_type == 3)
         {
-            lost_type0.SetActive(true);
+            lost_type0.SetActive(false);
             lost_type1.SetActive(false);
             lost_type2.SetActive(false);
             lost_type3.SetActive(true);
         }//ประเภทการโจมตี
-
+        //เฟส 1 ปกติ ไม่ได้เขียน
         if (BossHP < 150 && BossHP >= 130)
         {
             speed = true;
@@ -238,7 +208,7 @@ public class enemyBoss : MonoBehaviour
         }//เฟส3 40%
         else if (BossHP < 45 && BossHP >= 5)
         {
-            Bran = 6;//หลบน้อยลง
+            Bran = 6;//กันน้อยลง
             ChX = 2;
             if (Random.Range(0,2) == 1)
             {

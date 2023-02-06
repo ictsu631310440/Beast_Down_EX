@@ -9487,6 +9487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 4392683620196524203, guid: f13a01a01d1b4ad4ea7be9527988ec81, type: 3}
+      propertyPath: BossHP
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 5055848497079612674, guid: f13a01a01d1b4ad4ea7be9527988ec81, type: 3}
       propertyPath: m_RootOrder
       value: 6
