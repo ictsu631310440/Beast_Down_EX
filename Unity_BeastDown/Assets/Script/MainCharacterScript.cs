@@ -21,7 +21,7 @@ public class MainCharacterScript : MonoBehaviour
     public int back = 30;
     //test
     public bool running = false;
-    public bool isGround = false;
+    public static bool isGround = false;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -32,20 +32,13 @@ public class MainCharacterScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "map")
-        {
-            Destroy(other.gameObject);
-        }
         if (other.gameObject.tag == "enemy")
         {
 
         }
         if (other.gameObject.tag == "Boss")
         {
-            if (enemyBoss.ontriggerwithplay < 2)
-            {
-                GetComponent<Rigidbody>().AddForce(new Vector3(-back, up, 0));
-            }            
+            GetComponent<Rigidbody>().AddForce(new Vector3(-back, up, 0));
             isGround = false;
         }
     }

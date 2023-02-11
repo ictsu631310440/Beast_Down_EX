@@ -25,10 +25,12 @@ public class enemyBoss : MonoBehaviour
     public GameObject lost_type3;
     public GameObject lost_type_speed;
 
-    public bool F2 = false;
+    public bool F3 = false;
+    public bool F3_5 = true;//เริ่มด้วย true เพื่อเมื่อเข้าลูป จะกลายเป็น false ในครั้งแรก
     public static int ontriggerwithplay = 0;
+    public int bossChargeMax = 24;
+    public int bossCharge = 24;
     int ChX = 3;
-    public float timeCh = 3;
 
     public bool F4 = false;
 
@@ -55,9 +57,22 @@ public class enemyBoss : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             if (play_cards.sequenceCardOneToFive[0] == 0 && play_cards.sequenceCardOneToFive[1] == 0 && play_cards.sequenceCardOneToFive[2] == 0
-                && play_cards.sequenceCardOneToFive[3] == 0 && play_cards.sequenceCardOneToFive[4] == 0 && isGround)//ไม่ได้เลือกการ์ด
+                && play_cards.sequenceCardOneToFive[3] == 0 && play_cards.sequenceCardOneToFive[4] == 0 && isGround
+                && MainCharacterScript.isGround)//ไม่ได้เลือกการ์ด
             {
                 MainCharacterScript.HP = MainCharacterScript.HP - BossATK;
+                if (F3)
+                {
+                    if (ontriggerwithplay < 2)
+                    {
+                        ontriggerwithplay++;
+                    }
+                    else if (ontriggerwithplay == 2)
+                    {
+                        ontriggerwithplay = 0;
+                        MainCharacterScript.HP = MainCharacterScript.HP - (BossATK * ChX);
+                    }
+                }//เฟส 3 ถ้าไม่ได้เลือกการ์ด
             }
             else if ((play_cards.sequenceCardOneToFive[0] != 0 || play_cards.sequenceCardOneToFive[1] != 0 || play_cards.sequenceCardOneToFive[2] != 0
                 || play_cards.sequenceCardOneToFive[3] != 0 || play_cards.sequenceCardOneToFive[4] != 0) && isGround)
@@ -65,65 +80,99 @@ public class enemyBoss : MonoBehaviour
                 isGround = false;
                 play_cards.willruncard = true;
 
-                NBAttack();
+                if (!isGround)
+                {
+                    GetComponent<Rigidbody>().AddForce(new Vector3(back, up, 0));
+                }//กระเด็น
+                if (F3 == false)
+                {
+                    NBAttack();
+                }//เฟส 1,2
+                else if (F3 == true)
+                {
+                    if (ontriggerwithplay < 2)
+                    {
+                        ontriggerwithplay++;
+                        bossCharge = bossCharge - (playerDamage.attack_and_defens * 2 * playerDamage.Lmultiply) + playerDamage.Lplus;
+                    }
+                    else if (ontriggerwithplay == 2)
+                    {
+                        ontriggerwithplay = 0;
+                        MainCharacterScript.HP = MainCharacterScript.HP - (BossATK * ChX);
+                    }
+                    if (bossCharge <= 0)
+                    {
+                        F3 = false;
+                        ontriggerwithplay = 0;
+                        GetComponent<Rigidbody>().AddForce(new Vector3(back, up, 0));
+                        bossCharge = bossChargeMax;
+                        BossHP = BossHP - 12;
+                    }
+                }//เฟส 3
+                if (F3_5 && BossHP < 125 && BossHP >= 5)
+                {
+                    F3_5 = false;
+                }
+                else if (!F3_5 && BossHP < 125 && BossHP >= 5)
+                {
+                    F3_5 = true;
+                }//สลับการชาร์จตี และการตีปกติในเฟส 3.5
 
                 if (speed && !playerDamage.speed)
                 {
                     MainCharacterScript.HP = MainCharacterScript.HP - BossATK;
-                }
-
+                }//บอสตีเร็ว และผู้เล่นไม่ได้ใช้การ์ดเร็ว
                 if (playerDamage.heal > 0)
                 {
                     MainCharacterScript.HP = MainCharacterScript.HP + (playerDamage.heal * playerDamage.Lmultiply) + playerDamage.Lplus;
+                    if (MainCharacterScript.HP >= 60)
+                    {
+                        MainCharacterScript.HP = 60;
+                    }//ไม่ให้เกิน 60
                 }//เป็นการ์ดรักษา หมายเหตุ โดนตีก่อนถึงรักษา
-
-                playerDamage.Lattack_and_defens = playerDamage.attack_and_defens;
-                playerDamage.Ldodge = playerDamage.dodge;
-                playerDamage.Ltype = playerDamage.type;
-                playerDamage.Lheal = playerDamage.heal;
-                playerDamage.Lspeed = playerDamage.speed;                               //เก็บค่าล่าสุด
-
-                playerDamage.Lplus = playerDamage.plus;
-                playerDamage.Lmultiply = playerDamage.multiply;                         //เก็บค่าพิเศษ                   
+                keep_the_value();//เก็บค่าต่างๆที่ผู้เล่นใช้
             }
         }
     }
     public void NBAttack()
     {
-        if (!isGround)
-        {
-            GetComponent<Rigidbody>().AddForce(new Vector3(back, up, 0));
-        }
         if (!speed || playerDamage.speed)
         {
             if (playerDamage.attack_and_defens > 0)
             {
-                if (playerDamage.attack_and_defens > 0)
+                if (lost_type == 0)
                 {
-                    if (lost_type == 0)
+                    if (playerDamage.attack_and_defens - BossATK > 0)
                     {
-                        if (playerDamage.attack_and_defens - BossATK > 0)
-                        {
-                            BossHP = playerDamage.attack_and_defens - BossATK;
-                        }
-                    }//บอสกัน
-                    else if (lost_type == playerDamage.type)
-                    {
-                        BossHP = BossHP - (playerDamage.attack_and_defens * 2 * playerDamage.Lmultiply) + playerDamage.Lplus;
-                    }//บอสแพ้ทาง
-                    else if (lost_type != playerDamage.type)
-                    {
-                        BossHP = BossHP - (playerDamage.attack_and_defens * playerDamage.Lmultiply) + playerDamage.Lplus;
-                    }//ตีปกติ
-                }//เป็นการ์ดโจมตีหรือป้องกัน
-                if (playerDamage.dodge > BossATK)
+                        BossHP = playerDamage.attack_and_defens - BossATK;
+                    }
+                }//บอสกัน
+                else if (lost_type == playerDamage.type)
                 {
+                    BossHP = BossHP - (playerDamage.attack_and_defens * 2 * playerDamage.Lmultiply) + playerDamage.Lplus;
+                }//บอสแพ้ทาง
+                else if (lost_type != playerDamage.type)
+                {
+                    BossHP = BossHP - (playerDamage.attack_and_defens * playerDamage.Lmultiply) + playerDamage.Lplus;
+                }//ตีปกติ
+            }//เป็นการ์ดโจมตีหรือป้องกัน
+            if (playerDamage.dodge > BossATK)
+            {
 
-                }//เป็นการ์ดหลบ
-            }
+            }//เป็นการ์ดหลบ
         }
     }//เฟสแรก //ตีปกติ
+    public void keep_the_value()
+    {
+        playerDamage.Lattack_and_defens = playerDamage.attack_and_defens;
+        playerDamage.Ldodge = playerDamage.dodge;
+        playerDamage.Ltype = playerDamage.type;
+        playerDamage.Lheal = playerDamage.heal;
+        playerDamage.Lspeed = playerDamage.speed;                               //เก็บค่าล่าสุด
 
+        playerDamage.Lplus = playerDamage.plus;
+        playerDamage.Lmultiply = playerDamage.multiply;                         //เก็บค่าพิเศษ            
+    }
     void Start()
     {
         hpBar1.transform.localScale = new(BossHP / 18, 1.5f, 1.5f);
@@ -200,38 +249,43 @@ public class enemyBoss : MonoBehaviour
         if (BossHP < 150 && BossHP >= 130)
         {
             speed = true;
-        }//เฟส2 50%
-        else if (BossHP < 130 && BossHP >= 45)
+        }//เฟส2 50% ตีเร็ว
+        else if (BossHP < 130 && BossHP >= 125)
         {
-            F2 = true;
+            F3 = true;
             speed = false;
         }//เฟส3 40%
-        else if (BossHP < 45 && BossHP >= 5)
+        else if (BossHP < 125 && BossHP >= 5)
         {
             Bran = 6;//กันน้อยลง
             ChX = 2;
-            if (Random.Range(0,2) == 1)
+            if (!F3_5)
             {
-                F2 = true;
+                F3 = true;
             }
-            else
+            else if (F3_5)
             {
-                F2 = false;
+                F3 = false;
             }
-        }//เฟส3 15% (เฟส 1 กับ 2 สลับกัน)
+        }//เฟส3.5 15% (เฟส 1 กับ 3 สลับกัน)
         else if (BossHP < 5)
         {
-            F2 = false;//ออกจากเฟส 2
-            F4 = true;//เข้าเฟส 4 
+            F4 = true;
+            F3 = false;
+            F3_5 = false;
+                
         }//เฟส 4 สุดท้าย 5%
 
-        if (F2)
+        if (F3)
         {
             running_speed = 2.0f;
         }
-        else if (!F2)
+        else if (!F3)
         {
             running_speed = 6.0f;
-        }//อยู่เฟส 2 หรอืไม่
+        }//อยู่เฟส 3 เวลาชาร์จจะเครื่องที่ช้า
+        Debug.Log("ontriggerwithplay : " + ontriggerwithplay);
+        Debug.Log("bossCharge : " + bossCharge);
+        Debug.Log("F3 : " + F3);
     }
 }

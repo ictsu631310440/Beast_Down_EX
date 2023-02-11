@@ -839,7 +839,9 @@ MonoBehaviour:
   lost_type2: {fileID: 681714689}
   lost_type3: {fileID: 1680668690}
   lost_type_speed: {fileID: 1342083520}
-  ChanSt: 0
+  F2: 0
+  timeCh: 3
+  F4: 0
 --- !u!1 &1519326499228425424
 GameObject:
   m_ObjectHideFlags: 0
