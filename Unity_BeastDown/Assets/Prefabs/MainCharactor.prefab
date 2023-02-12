@@ -123,7 +123,6 @@ MonoBehaviour:
   up: 20
   back: 20
   running: 0
-  isGround: 0
 --- !u!54 &8587780025696361003
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -28,6 +28,15 @@ public class enemyBig : MonoBehaviour
                 MainCharacterScript.HP = MainCharacterScript.HP - HPenemy;
                 HPenemy = 0;
                 GetComponent<Rigidbody>().AddForce(new Vector3(back, up, 0));
+
+                if (Sys_Power.current_power < 100)
+                {
+                    Sys_Power.current_power = Sys_Power.current_power + 1;
+                }
+                else if (Sys_Power.current_power >= 100)
+                {
+                    Sys_Power.current_power = 100;
+                }
             }
             else if ((play_cards.sequenceCardOneToFive[0] != 0 || play_cards.sequenceCardOneToFive[1] != 0 || play_cards.sequenceCardOneToFive[2] != 0
                 || play_cards.sequenceCardOneToFive[3] != 0 || play_cards.sequenceCardOneToFive[4] != 0) && die == false && isGround)
@@ -50,6 +59,15 @@ public class enemyBig : MonoBehaviour
                     else if (lost_type != playerDamage.type)
                     {
                         HPenemy = HPenemy - (playerDamage.attack_and_defens * playerDamage.Lmultiply) + playerDamage.Lplus;
+                    }
+
+                    if (Sys_Power.current_power < 100)
+                    {
+                        Sys_Power.current_power = Sys_Power.current_power + Sys_Power.Up_point;
+                    }
+                    else if (Sys_Power.current_power >= 100)
+                    {
+                        Sys_Power.current_power = 100;
                     }
                 }//เป็นการ์ดโจมตีหรือป้องกัน
                 if (playerDamage.dodge > HPenemy)

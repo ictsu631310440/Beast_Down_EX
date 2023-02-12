@@ -38,8 +38,11 @@ public class MainCharacterScript : MonoBehaviour
         }
         if (other.gameObject.tag == "Boss")
         {
-            GetComponent<Rigidbody>().AddForce(new Vector3(-back, up, 0));
-            isGround = false;
+            if (!enemyBoss.bossDie)
+            {
+                GetComponent<Rigidbody>().AddForce(new Vector3(-back, up, 0));
+                isGround = false;
+            }
         }
     }
     public void zoomin()
@@ -64,6 +67,10 @@ public class MainCharacterScript : MonoBehaviour
     {
         hpBar.value = HP; //บอกเลือดที่หลอด
         hptext.text = "HP : " + HP.ToString(); //บอกเลือดตัวเลข
+        if (HP >= HPset)
+        {
+            HP = HPset;
+        }//บังคับให้เลือดไม่เกิน HPset ที่ตั้งไว้
         Time.timeScale = _SpeedTime; // ความเร็วของเวลา
 
         if (running && isGround)
@@ -78,8 +85,6 @@ public class MainCharacterScript : MonoBehaviour
         {
             zoomout();
         }
-
-
 
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -97,9 +102,9 @@ public class MainCharacterScript : MonoBehaviour
         {
             running = false;
         }
-        if (Input.GetKeyDown(KeyCode.Q)) 
-        {
-            GetComponent<Rigidbody>().AddForce(new Vector3(-back, up, 0));
-        }
+        //if (Input.GetKeyDown(KeyCode.Q)) 
+        //{
+        //    GetComponent<Rigidbody>().AddForce(new Vector3(-back, up, 0));
+        //}
     }
 }
