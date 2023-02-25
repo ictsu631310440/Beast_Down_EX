@@ -96,6 +96,8 @@ public class enemyBig : MonoBehaviour
                     MainCharacterScript.HP = MainCharacterScript.HP - HPenemy;
                     HPenemy = 0;
                 }//ถ้ามอนไม่ตาย
+
+                mainanimationScript.playAnimationAttack = true;//เล่นอนิเมชั่นตี
             }
         }
     }

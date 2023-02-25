@@ -187,6 +187,8 @@ public class enemyBoss : MonoBehaviour
                     }//ไม่ให้เกิน 60
                 }//เป็นการ์ดรักษา หมายเหตุ โดนตีก่อนถึงรักษา
                 keep_the_value();//เก็บค่าต่างๆที่ผู้เล่นใช้
+
+                mainanimationScript.playAnimationAttack = true;//เล่นอนิเมชั่นตี
             }
         }
     }

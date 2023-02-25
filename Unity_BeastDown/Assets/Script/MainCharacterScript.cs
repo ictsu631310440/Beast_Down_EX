@@ -20,14 +20,17 @@ public class MainCharacterScript : MonoBehaviour
     public int up = 20;
     public int back = 30;
     //test
-    public bool running = false;
+    public static bool running = false;
     public static bool isGround = false;
+    //animation
+    public static bool gotboss = false;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "map")
         {
             isGround = true;
+            gotboss = false;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -43,6 +46,7 @@ public class MainCharacterScript : MonoBehaviour
                 GetComponent<Rigidbody>().AddForce(new Vector3(-back, up, 0));
                 isGround = false;
             }
+            gotboss = true;
         }
     }
     public void zoomin()
@@ -102,9 +106,5 @@ public class MainCharacterScript : MonoBehaviour
         {
             running = false;
         }
-        //if (Input.GetKeyDown(KeyCode.Q)) 
-        //{
-        //    GetComponent<Rigidbody>().AddForce(new Vector3(-back, up, 0));
-        //}
     }
 }

@@ -93,7 +93,9 @@ public class enemyBasic : MonoBehaviour
                 playerDamage.Lspeed = playerDamage.speed;                               //เก็บค่าล่าสุด
 
                 playerDamage.Lplus = playerDamage.plus;
-                playerDamage.Lmultiply = playerDamage.multiply;                         //เก็บค่าพิเศษ                   
+                playerDamage.Lmultiply = playerDamage.multiply;                         //เก็บค่าพิเศษ
+                                                                                        //
+                mainanimationScript.playAnimationAttack = true;//เล่นอนิเมชั่นตี
             }
         }
     }
