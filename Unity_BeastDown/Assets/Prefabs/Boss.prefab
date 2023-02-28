@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 1342083523}
   - component: {fileID: 1342083522}
   - component: {fileID: 1342083521}
+  - component: {fileID: 326052089}
   m_Layer: 0
   m_Name: speed
   m_TagString: Untagged
@@ -430,6 +431,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &326052089
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342083520}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1607252994
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +662,7 @@ GameObject:
   - component: {fileID: 2527442998838720774}
   - component: {fileID: 8890061765662984613}
   - component: {fileID: 4392683620196524203}
+  - component: {fileID: 132058066}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -715,9 +733,7 @@ MonoBehaviour:
   BossHP: 300
   BossATK: 6
   running_speed: 6
-  lost_type: 0
   speed: 0
-  isGround: 0
   up: 30
   back: 35
   hpBar1: {fileID: 5745643674221244784}
@@ -732,13 +748,26 @@ MonoBehaviour:
   lost_type2: {fileID: 681714689}
   lost_type3: {fileID: 1680668690}
   lost_type_speed: {fileID: 1342083520}
-  F3: 0
   F3_5: 1
   bossChargeMax: 24
   bossCharge: 24
   F4: 0
   bossBody: {fileID: 4214637323603941054}
   bossBodydie: {fileID: 7962839840251209794}
+--- !u!114 &132058066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050789942198350683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ac334770173184da6e41196ce01728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _BossAnimation: {fileID: 1453384730}
+  HpBoss: 0
 --- !u!1 &1519326499228425424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,7 +1153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 885e08ca33eaa5245aa8cf7aab9aa156, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 885e08ca33eaa5245aa8cf7aab9aa156, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1191,7 +1220,27 @@ CapsuleCollider:
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 1, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!95 &1453384730
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4214637323603941054}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 35a569cdfc30dd94684ba815daa10f20, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7079897709511791891
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,14 +5,16 @@ using UnityEngine;
 public class enemyBoss : MonoBehaviour
 {
     public int BossHP = 300;
+    public static int CheckedHP;
     public int BossATK = 6;
     public float running_speed = 6.0f;
     bool running = false;
-    public int lost_type;
+    public static int lost_type;
     public bool speed = false;
-    public bool isGround = false;
+    public static bool isGround = false;
     public int up = 20;
     public int back = 20;
+    public static bool hitplayer = false;
 
     public GameObject hpBar1;
     public GameObject hpBar2;
@@ -25,14 +27,15 @@ public class enemyBoss : MonoBehaviour
     public GameObject lost_type3;
     public GameObject lost_type_speed;
 
-    public bool F3 = false;
+    public static bool F3 = false;
+    public static bool chargeF = false;
     public bool F3_5 = true;//เริ่มด้วย true เพื่อเมื่อเข้าลูป จะกลายเป็น false ในครั้งแรก
     public static int ontriggerwithplay = 0;
     public int bossChargeMax = 24;
     public int bossCharge = 24;
     int ChX = 3;
 
-    public bool F4 = false;
+    public static bool F4 = false;
     public static bool bossDie = false;
     public GameObject bossBody;
     public GameObject bossBodydie;
@@ -44,6 +47,7 @@ public class enemyBoss : MonoBehaviour
     {
         if (other.gameObject.tag == "map")
         {
+            hitplayer = false;
             isGround = true;
             ran = Random.Range(-2, 1);
             if (fistime == Bran + ran)
@@ -59,6 +63,7 @@ public class enemyBoss : MonoBehaviour
         }
         if (other.gameObject.tag == "Player")
         {
+            hitplayer = true;
             if (play_cards.sequenceCardOneToFive[0] == 0 && play_cards.sequenceCardOneToFive[1] == 0 && play_cards.sequenceCardOneToFive[2] == 0
                 && play_cards.sequenceCardOneToFive[3] == 0 && play_cards.sequenceCardOneToFive[4] == 0 && isGround
                 && MainCharacterScript.isGround && !bossDie)//ไม่ได้เลือกการ์ด
@@ -129,6 +134,7 @@ public class enemyBoss : MonoBehaviour
                     {
                         ontriggerwithplay = 0;
                         MainCharacterScript.HP = MainCharacterScript.HP - (BossATK * ChX);
+                        chargeF = true;
                     }
                     if (bossCharge <= 0)
                     {
@@ -137,6 +143,7 @@ public class enemyBoss : MonoBehaviour
                         GetComponent<Rigidbody>().AddForce(new Vector3(back, up, 0));
                         bossCharge = bossChargeMax;
                         BossHP = BossHP - 12;
+                        chargeF = false;
                     }
                 }//เฟส 3
                 if (F3_5 && BossHP < 125 && BossHP >= 5)
@@ -214,7 +221,7 @@ public class enemyBoss : MonoBehaviour
                     BossHP = BossHP - (playerDamage.attack_and_defens * playerDamage.Lmultiply) + playerDamage.Lplus;
                 }//ตีปกติ
             }//เป็นการ์ดโจมตีหรือป้องกัน
-            if (playerDamage.dodge >= BossATK)
+            else if (playerDamage.dodge >= BossATK)
             {
 
             }//เป็นการ์ดหลบ
@@ -247,10 +254,12 @@ public class enemyBoss : MonoBehaviour
         lost_type_speed.SetActive(false);
         bossBodydie.SetActive(false);
         bossBody.SetActive(true);
+        
     }
 
     void Update()
     {
+        CheckedHP = BossHP;
         if (running && !F4 && !bossDie)
         {
             transform.Translate(-1 * Time.deltaTime * running_speed, 0, 0);//เดินไปข้างหน้า
