@@ -20,7 +20,7 @@ ModelImporter:
     second: NPR2
   - first:
       74: 5061166174467899511
-    second: NPCL2
+    second: NPCR2
   - first:
       74: 3125823076540372474
     second: NECL1
@@ -202,7 +202,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: NPCL2
+      name: NPCR2
       takeName: Take 001
       internalID: 0
       firstFrame: 127

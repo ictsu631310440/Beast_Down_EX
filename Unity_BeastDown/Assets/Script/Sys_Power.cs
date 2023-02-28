@@ -54,7 +54,7 @@ public class Sys_Power : MonoBehaviour
     void Update()
     {
         powerSlider.value = current_power;
-        Debug.Log(current_power);
+        //Debug.Log(current_power);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             click_Use();

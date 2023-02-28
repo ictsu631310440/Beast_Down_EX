@@ -70,7 +70,7 @@ public class enemyBig : MonoBehaviour
                         Sys_Power.current_power = 100;
                     }
                 }//เป็นการ์ดโจมตีหรือป้องกัน
-                if (playerDamage.dodge > HPenemy)
+                if (playerDamage.dodge >= HPenemy)
                 {
                     HPenemy = 0;
                 }//เป็นการ์ดหลบ

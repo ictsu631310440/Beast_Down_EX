@@ -15,12 +15,8 @@ public class Main_Menu : MonoBehaviour
     }
     public void Play_Story_Buttom()
     {
-        SceneManager.LoadScene("Play_Story");
+        SceneManager.LoadScene("Play_ok");
     }
-    //public void Play_Endless_Buttom()
-    //{
-    //    SceneManager.LoadScene("Play_Endless");
-    //}
     public void How_to_Buttom()
     {
         SceneManager.LoadScene("How_to_Play");

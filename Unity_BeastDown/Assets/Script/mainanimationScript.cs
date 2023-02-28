@@ -4,100 +4,108 @@ using UnityEngine;
 
 public class mainanimationScript : MonoBehaviour
 {
+    public GameObject mainPlayer;
+    public GameObject openAnimation;
     public Animator mainAnimation;
-    float timeOpening = 5.5f;
-    float LR = 0.5f;
+    public static float timeOpening = 5.5f;
+    float LR = 0.45f;
+    float TimeA = 0.45f;
     bool R = false;
     int HPChecked;
 
     public static bool playAnimationAttack = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        HPChecked = MainCharacterScript.HP;
+        LR = 0.4f;
+        openAnimation.SetActive(true);
+        mainPlayer.SetActive(false);
     }
 
+    public void ResetV()
+    {
+        LR = 0.45f;
+        mainAnimation.SetBool("hit", false);
+        playAnimationAttack = false;
+        mainAnimation.SetBool("takeDamage", false);
+        MainCharacterScript.gotboss = false;
+
+    }
     // Update is called once per frame
     void Update()
     {
-        LR = LR - Time.deltaTime;
+        if (timeOpening > 0)
+        {
+            HPChecked = MainCharacterScript.HP;
+            timeOpening = timeOpening - Time.deltaTime;
+        }
+        if (timeOpening <= 0)
+        {
+            openAnimation.SetActive(false);
+            mainPlayer.SetActive(true);
+            MainCharacterScript.running = true;
+            LR = LR - Time.deltaTime;
+        }
         if (LR <= 0 && !R)
         {
             R = true;
             mainAnimation.SetBool("R", true);
-            LR = 0.5f;
+            LR = 0.45f;
         }
-        else if (LR <= 0 && R)
+        if (LR <= 0 && R)
         {
             R = false;
             mainAnimation.SetBool("R", false);
-            LR = 0.5f;
+            LR = 0.45f;
         }//สลับซ้ายขวา
 
-        timeOpening = timeOpening - Time.deltaTime;
-        if (timeOpening <= 0)
-        {
-            MainCharacterScript.running = true;
-        }
         if (playAnimationAttack == true)
         {
-            if (playerDamage.type == 1)
+            mainAnimation.SetInteger("type", playerDamage.type);
+            mainAnimation.SetBool("hit", true);
+            TimeA = TimeA - Time.deltaTime;
+            if (TimeA <= 0)
             {
-                mainAnimation.SetBool("P1", true);
-                mainAnimation.SetBool("S2", false);
-                mainAnimation.SetBool("I3", false);
-                mainAnimation.SetBool("N0", false);
-            }//P
-            else if (playerDamage.type == 2)
-            {
-                mainAnimation.SetBool("P1", false);
-                mainAnimation.SetBool("S2", true);
-                mainAnimation.SetBool("I3", false);
-                mainAnimation.SetBool("N0", false);
-            }//S
-            else if (playerDamage.type == 3)
-            {
-                mainAnimation.SetBool("P1", false);
-                mainAnimation.SetBool("S2", false);
-                mainAnimation.SetBool("I3", true);
-                mainAnimation.SetBool("N0", false);
-            }//I
-            else if (playerDamage.type == 0)
-            {
-                mainAnimation.SetBool("P1", false);
-                mainAnimation.SetBool("S2", false);
-                mainAnimation.SetBool("I3", false);
-                mainAnimation.SetBool("N0", true);
-                if (playerDamage.dodge > 0)
-                {
-                    mainAnimation.SetBool("dodge", true);
-                }
-                else if (playerDamage.dodge == 0)
-                {
-                    mainAnimation.SetBool("dodge", false);
-                }
-            }//N
-            playAnimationAttack = false;
-        }
+                TimeA = 0.45f;
+                mainAnimation.SetBool("hit", false);
+                playAnimationAttack = false;
+            }
 
+            if (playerDamage.dodge > 0)
+            {
+                mainAnimation.SetBool("dodge", true);
+            }
+            if (playerDamage.dodge == 0)
+            {
+                mainAnimation.SetBool("hit", false);
+                mainAnimation.SetBool("dodge", false);
+                playAnimationAttack = false;
+            }//N
+        }
         if (MainCharacterScript.HP < HPChecked)
         {
-            mainAnimation.SetBool("hit", true);
+            mainAnimation.SetInteger("type", 5);
+            mainAnimation.SetBool("takeDamage", true);
             HPChecked = MainCharacterScript.HP;
+            Invoke("ResetV", 0.2f);
+        }
+        if (MainCharacterScript.HP <= 0)
+        {
+            mainAnimation.SetBool("die", true);
         }
 
         if (MainCharacterScript.gotboss == true)
         {
+            mainAnimation.SetBool("isG", false);
             mainAnimation.SetBool("gotboss", true);
-            MainCharacterScript.gotboss = false;
+            Invoke("ResetV", 0.2f);
         }//เจอบอส
 
         if (MainCharacterScript.isGround)
         {
             mainAnimation.SetBool("isG", true);
-            mainAnimation.SetBool("dodge", false);
-            mainAnimation.SetBool("hit", false);
-            LR = 0.5f;
-        }//รีเซดค่า
+            MainCharacterScript.getzoom = false;
+        }//ตรวจจับพื้น
     }
 }

@@ -214,7 +214,7 @@ public class enemyBoss : MonoBehaviour
                     BossHP = BossHP - (playerDamage.attack_and_defens * playerDamage.Lmultiply) + playerDamage.Lplus;
                 }//ตีปกติ
             }//เป็นการ์ดโจมตีหรือป้องกัน
-            if (playerDamage.dodge > BossATK)
+            if (playerDamage.dodge >= BossATK)
             {
 
             }//เป็นการ์ดหลบ

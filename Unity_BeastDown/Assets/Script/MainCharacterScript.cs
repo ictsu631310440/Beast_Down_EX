@@ -12,7 +12,7 @@ public class MainCharacterScript : MonoBehaviour
     public float running_speed = 6.0f;
     public static float _SpeedTime = 1.0f;
     public static bool getzoom = false;
-    public int HPset = 30;
+    public int HPset;
     public static int HP = 30;
     public Slider hpBar;
     public TextMeshProUGUI hptext;
@@ -77,7 +77,7 @@ public class MainCharacterScript : MonoBehaviour
         }//บังคับให้เลือดไม่เกิน HPset ที่ตั้งไว้
         Time.timeScale = _SpeedTime; // ความเร็วของเวลา
 
-        if (running && isGround)
+        if (running && isGround && HP > 0)
         {
             transform.Translate(1 * Time.deltaTime * running_speed, 0, 0);//เดินไปข้างหน้า
         }
