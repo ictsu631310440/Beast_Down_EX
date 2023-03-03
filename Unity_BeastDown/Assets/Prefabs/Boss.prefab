@@ -360,7 +360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342083520}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 5.5, y: 2.86, z: -0.25}
+  m_LocalPosition: {x: 5.5, y: 2.553, z: -0.25}
   m_LocalScale: {x: 0.075, y: 0.075, z: 0.075}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -471,7 +471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607252994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.36, z: -0}
+  m_LocalPosition: {x: 0, y: 2.053, z: 0}
   m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -751,7 +751,6 @@ MonoBehaviour:
   F3_5: 1
   bossChargeMax: 24
   bossCharge: 24
-  F4: 0
   bossBody: {fileID: 4214637323603941054}
   bossBodydie: {fileID: 7962839840251209794}
 --- !u!114 &132058066
@@ -1195,6 +1194,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9036682778241163244, guid: 885e08ca33eaa5245aa8cf7aab9aa156, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e5e08ab1a0e8f394aabd4b503c02aa20, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 885e08ca33eaa5245aa8cf7aab9aa156, type: 3}
 --- !u!4 &3546222951260244996 stripped
@@ -1300,6 +1303,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9036682778241163244, guid: 885e08ca33eaa5245aa8cf7aab9aa156, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e5e08ab1a0e8f394aabd4b503c02aa20, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 885e08ca33eaa5245aa8cf7aab9aa156, type: 3}
 --- !u!1 &848056622693327721 stripped
