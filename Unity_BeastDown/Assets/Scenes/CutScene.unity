@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4884.8916, g: 3153.2734, b: 2212.5898, a: 1}
+  m_IndirectSpecularColor: {r: 4873.959, g: 3154.4336, b: 2238.0898, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -616,8 +616,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266110190}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 19.29, y: 4.39, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0037196, y: 2.34, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -715,7 +715,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297394474}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0037196, y: 0.3639703, z: -10}
+  m_LocalPosition: {x: 1.0037196, y: 2.34, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1744,9 +1744,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1377095169}
         m_TargetAssemblyTypeName: Main_Menu, Assembly-CSharp
-        m_MethodName: Play_Buttom
+        m_MethodName: Play_Story_Buttom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1827,7 +1827,7 @@ GameObject:
   - component: {fileID: 883762567}
   - component: {fileID: 883762566}
   m_Layer: 0
-  m_Name: CameraTwo(Zoom)
+  m_Name: CameraTwo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2876,8 +2876,9 @@ GameObject:
   - component: {fileID: 1377095167}
   - component: {fileID: 1377095166}
   - component: {fileID: 1377095168}
+  - component: {fileID: 1377095169}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: RawImage and code
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2958,6 +2959,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1377095169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377095164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58bdc2ae513239d4cb3ab134efd6f3e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  select_gamemode: {fileID: 0}
+  Credit: {fileID: 0}
 --- !u!1001 &1382479064
 PrefabInstance:
   m_ObjectHideFlags: 0

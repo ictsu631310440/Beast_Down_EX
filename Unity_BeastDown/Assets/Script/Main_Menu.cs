@@ -13,6 +13,10 @@ public class Main_Menu : MonoBehaviour
     {
         select_gamemode.SetActive(true);
     }
+    public void Play_cutScene_Buttom()
+    {
+        SceneManager.LoadScene("CutScene");
+    }
     public void Play_Story_Buttom()
     {
         SceneManager.LoadScene("Play_ok");

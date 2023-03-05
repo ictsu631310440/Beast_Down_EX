@@ -5,16 +5,14 @@ using UnityEngine;
 public class enemyBoss : MonoBehaviour
 {
     public int BossHP = 300;
-    public static int CheckedHP;
     public int BossATK = 6;
     public float running_speed = 6.0f;
     bool running = false;
     public static int lost_type;
     public bool speed = false;
-    public static bool isGround = false;
+    public bool isGround = false;
     public int up = 20;
     public int back = 20;
-    public static bool hitplayer = false;
 
     public GameObject hpBar1;
     public GameObject hpBar2;
@@ -47,7 +45,6 @@ public class enemyBoss : MonoBehaviour
     {
         if (other.gameObject.tag == "map")
         {
-            hitplayer = false;
             isGround = true;
             ran = Random.Range(-2, 1);
             if (fistime == Bran + ran)
@@ -63,7 +60,6 @@ public class enemyBoss : MonoBehaviour
         }
         if (other.gameObject.tag == "Player")
         {
-            hitplayer = true;
             if (play_cards.sequenceCardOneToFive[0] == 0 && play_cards.sequenceCardOneToFive[1] == 0 && play_cards.sequenceCardOneToFive[2] == 0
                 && play_cards.sequenceCardOneToFive[3] == 0 && play_cards.sequenceCardOneToFive[4] == 0 && isGround
                 && MainCharacterScript.isGround && !bossDie)//ไม่ได้เลือกการ์ด
@@ -142,7 +138,7 @@ public class enemyBoss : MonoBehaviour
                         ontriggerwithplay = 0;
                         GetComponent<Rigidbody>().AddForce(new Vector3(back, up, 0));
                         bossCharge = bossChargeMax;
-                        BossHP = BossHP - 12;
+                        BossHP = BossHP - 10;
                         chargeF = false;
                     }
                 }//เฟส 3
@@ -259,7 +255,6 @@ public class enemyBoss : MonoBehaviour
 
     void Update()
     {
-        CheckedHP = BossHP;
         if (running && !F4 && !bossDie)
         {
             transform.Translate(-1 * Time.deltaTime * running_speed, 0, 0);//เดินไปข้างหน้า

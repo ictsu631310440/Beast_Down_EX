@@ -144,7 +144,7 @@ public class play_cards : MonoBehaviour
         }
     }
     void Update()
-    {//อนิเมชั่นการ์ดตอนจั่ว
+    {
         deckSizeText.text = deck.Count.ToString(); // อับเดดจำนวนการ์ดที่เหลือใน deck
         updateNum(); //ดับเดดตัวเลขที่แสดง
 

@@ -5,67 +5,52 @@ using UnityEngine;
 public class BossAnimation : MonoBehaviour
 {
     public Animator _BossAnimation;
-    public int HpBoss;
-    float TimeA = 0.45f;
-    // Start is called before the first frame update
-    void Start()
+    bool hitplayer = false;
+    private void OnTriggerEnter(Collider other)
     {
-        HpBoss = enemyBoss.CheckedHP;
-    }
-
-    public void ResetV()
-    {
-        _BossAnimation.SetBool("hitplayer", false);
-        _BossAnimation.SetBool("Charge", false);
-        enemyBoss.chargeF = false;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (enemyBoss.isGround)
+        if (other.gameObject.tag == "Player")
+        {
+            _BossAnimation.SetBool("isG", false);
+            _BossAnimation.SetBool("hitplayer", true);
+        }
+        if (other.gameObject.tag == "map")
         {
             _BossAnimation.SetBool("isG", true);
             _BossAnimation.SetBool("hitplayer", false);
         }
-        else if (!enemyBoss.isGround)
+    }
+    void Start()
+    {
+
+    }
+    void Update()
+    {
+        if (play_cards.sequenceCardOneToFive[0] == 1 || play_cards.sequenceCardOneToFive[1] == 1 || play_cards.sequenceCardOneToFive[2] == 1
+            || play_cards.sequenceCardOneToFive[3] == 1 || play_cards.sequenceCardOneToFive[4] == 1)
         {
-            _BossAnimation.SetBool("isG", false);
+            _BossAnimation.SetBool("willAttack", true);
+        }
+        else if (play_cards.sequenceCardOneToFive[0] == 0 && play_cards.sequenceCardOneToFive[1] == 0 && play_cards.sequenceCardOneToFive[2] == 0
+            && play_cards.sequenceCardOneToFive[3] == 0 && play_cards.sequenceCardOneToFive[4] == 0)
+        {
+            _BossAnimation.SetBool("willAttack", false);
         }
         if (!enemyBoss.F4 || playerDamage.type != 0)
         {
-            _BossAnimation.SetInteger("type", playerDamage.type);
-            if (enemyBoss.hitplayer)
+            _BossAnimation.SetInteger("type", enemyBoss.lost_type);
+            if (hitplayer)
             {
                 _BossAnimation.SetBool("hitplayer", true);
-                Invoke("ResrtV", 0.2f);
             }
-            if (enemyBoss.CheckedHP < HpBoss)
-            {
-                _BossAnimation.SetBool("takeDamage", true);
-                TimeA = TimeA - Time.deltaTime;
-                if (TimeA <= 0)
-                {
-                    TimeA = 0.45f;
-                    HpBoss = enemyBoss.CheckedHP;
-                }
-                Invoke("ResrtV", 0.2f);
-            }
-        }
-
-        else if (enemyBoss.CheckedHP == HpBoss)
-        {
-            _BossAnimation.SetBool("takeDamage", false);
-            Invoke("ResrtV", 0.2f);
         }
         if (enemyBoss.F3)
         {
             _BossAnimation.SetBool("Charge", true);
-            Invoke("ResrtV", 0.2f);
         }
+
         if (enemyBoss.chargeF)
         {
             _BossAnimation.SetBool("ChargeF", true);
-            Invoke("ResrtV", 0.45f);
         }
         if (!enemyBoss.chargeF)
         {
