@@ -5,13 +5,14 @@ using UnityEngine;
 public class enemyBig : MonoBehaviour
 {
     public int HPenemy = 12;
-    bool die = false;
     public int lost_type;
     int ontriggerwithplay = 0;
     public bool isGround = false;
     public int up = 20;
     public int back = 30;
 
+    public GameObject Allbodyenemy;
+    public GameObject bodyenemy;
     public GameObject enemywilldie;
 
     private void OnTriggerEnter(Collider other)
@@ -23,7 +24,7 @@ public class enemyBig : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             if (play_cards.sequenceCardOneToFive[0] == 0 && play_cards.sequenceCardOneToFive[1] == 0 && play_cards.sequenceCardOneToFive[2] == 0
-                && play_cards.sequenceCardOneToFive[3] == 0 && play_cards.sequenceCardOneToFive[4] == 0 && die == false && isGround)//ไม่ได้เลือกการ์ด
+                && play_cards.sequenceCardOneToFive[3] == 0 && play_cards.sequenceCardOneToFive[4] == 0 && HPenemy != 0 && isGround)//ไม่ได้เลือกการ์ด
             {
                 MainCharacterScript.HP = MainCharacterScript.HP - HPenemy;
                 HPenemy = 0;
@@ -39,7 +40,7 @@ public class enemyBig : MonoBehaviour
                 }
             }
             else if ((play_cards.sequenceCardOneToFive[0] != 0 || play_cards.sequenceCardOneToFive[1] != 0 || play_cards.sequenceCardOneToFive[2] != 0
-                || play_cards.sequenceCardOneToFive[3] != 0 || play_cards.sequenceCardOneToFive[4] != 0) && die == false && isGround)
+                || play_cards.sequenceCardOneToFive[3] != 0 || play_cards.sequenceCardOneToFive[4] != 0) && HPenemy != 0 && isGround)
             {
                 isGround = false;
                 play_cards.willruncard = true;
@@ -104,18 +105,18 @@ public class enemyBig : MonoBehaviour
 
     void Start()
     {
-
+        enemywilldie.SetActive(false);
+        bodyenemy.SetActive(true);
     }
 
     void Update()
     {
         if (HPenemy == 0)
         {
-            die = true;
-        }
-        if (die == true)
-        {
-            Destroy(enemywilldie, 0.5f);
+            bodyenemy.SetActive(false);
+            enemywilldie.SetActive(true);
+            enemywilldie.GetComponent<Rigidbody>().AddForce(new Vector3(back, up, 0));
+            Destroy(Allbodyenemy, 0.5f);
         }
     }
 }
