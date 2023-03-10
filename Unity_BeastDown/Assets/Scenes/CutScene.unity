@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 7456.256, g: 5349.582, b: 5090.953, a: 1}
+  m_IndirectSpecularColor: {r: 7378.6167, g: 5358.7764, b: 5324.0815, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2964,14 +2964,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1377095169}
         m_TargetAssemblyTypeName: Main_Menu, Assembly-CSharp
-        m_MethodName: Play_Story_Buttom
-        m_Mode: 1
+        m_MethodName: GotoScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Play_ok
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &804756233
@@ -3026,7 +3026,7 @@ RectTransform:
   m_Children:
   - {fileID: 1157226551}
   m_Father: {fileID: 1974670560}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5241,7 +5241,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1974670560}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5255,7 +5255,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377095164}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
@@ -5315,8 +5315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58bdc2ae513239d4cb3ab134efd6f3e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  select_gamemode: {fileID: 0}
-  Credit: {fileID: 0}
+  UiElement: []
 --- !u!1001 &1380424931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7605,8 +7604,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 804756235}
   - {fileID: 1377095165}
+  - {fileID: 804756235}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

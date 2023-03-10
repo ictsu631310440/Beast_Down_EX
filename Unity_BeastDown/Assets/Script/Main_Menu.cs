@@ -6,18 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class Main_Menu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public GameObject select_gamemode;
-    public GameObject Credit;
-    public void Play_Buttom()
+    public GameObject[] UiElement;
+    /*public GameObject select_gamemode;
+    public GameObject Credit;*/
+
+    private int indexElement;
+
+    /*public void Play_Buttom()
     {
         select_gamemode.SetActive(true);
-    }
+    }*/
     public void Play_cutScene_Buttom()
     {
         SceneManager.LoadScene("CutScene");
     }
-    public void Play_Story_Buttom()
+   /* public void Play_Story_Buttom()
     {
         SceneManager.LoadScene("Play_ok");
     }
@@ -33,21 +36,38 @@ public class Main_Menu : MonoBehaviour
     {
         select_gamemode.SetActive(false);
         Credit.SetActive(false);
+    }*/
+
+    public void ActiveElement(int indexElement)
+    {
+        UiElement[indexElement].SetActive(true);
+        foreach (var item in UiElement)
+        {
+            if(item != UiElement[indexElement]) // check if item is not the same as UiElement[indexElement]`
+            item.SetActive(false); // deactivate item
+        }
+    }
+
+    public void GotoScene(string nameScene)
+    {
+        SceneManager.LoadScene(nameScene);
     }
 
     public void QuitGame()
     {
+        Debug.Log("Close Game.exe");
         Application.Quit(); // จะทำงานได้ต่อเมื่อเป็น .exe
     }
-    void Start()
+
+    private void Start()
     {
-        select_gamemode.SetActive(false);
-        Credit.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+    /*    void Start()
+        {
+            select_gamemode.SetActive(false);
+            Credit.SetActive(false);
+        }*/
 }
