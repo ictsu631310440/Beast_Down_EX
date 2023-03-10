@@ -188,6 +188,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8587780025696361002}
     m_Modifications:
+    - target: {fileID: -9191742751022579850, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42434ac0f2905694fabee27b513dcc08, type: 2}
     - target: {fileID: -8679921383154817045, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -232,10 +236,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4165749769634848177, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4165749769634848177, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4165749769634848177, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4165749769634848177, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4165749769634848177, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4165749769634848177, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4165749769634848177, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1842060007030538972, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42434ac0f2905694fabee27b513dcc08, type: 2}
+    - target: {fileID: -1842060007030538972, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42434ac0f2905694fabee27b513dcc08, type: 2}
+    - target: {fileID: 801180562815376569, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6dac6fc106cdfda429e05377ff50d6fc, type: 2}
     - target: {fileID: 919132149155446097, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
       propertyPath: m_Name
       value: MainAnimation1Opning
       objectReference: {fileID: 0}
+    - target: {fileID: 4398121332948816270, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b97039028201e0449fd5b23ef4fcd76, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19c596857dfd51449a3df79b5d19b0ae, type: 3}
 --- !u!1 &3802845716188488626 stripped
@@ -275,6 +323,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8587780025696361002}
     m_Modifications:
+    - target: {fileID: -9191742751022579850, guid: 518217ee6ec25294d98c59b1757f8340, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42434ac0f2905694fabee27b513dcc08, type: 2}
     - target: {fileID: -8679921383154817045, guid: 518217ee6ec25294d98c59b1757f8340, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -319,6 +371,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1842060007030538972, guid: 518217ee6ec25294d98c59b1757f8340, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42434ac0f2905694fabee27b513dcc08, type: 2}
+    - target: {fileID: -1842060007030538972, guid: 518217ee6ec25294d98c59b1757f8340, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42434ac0f2905694fabee27b513dcc08, type: 2}
+    - target: {fileID: 801180562815376569, guid: 518217ee6ec25294d98c59b1757f8340, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6dac6fc106cdfda429e05377ff50d6fc, type: 2}
     - target: {fileID: 919132149155446097, guid: 518217ee6ec25294d98c59b1757f8340, type: 3}
       propertyPath: m_Name
       value: MainAnimation2stand

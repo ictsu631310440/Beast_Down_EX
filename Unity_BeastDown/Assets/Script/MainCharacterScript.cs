@@ -10,7 +10,6 @@ public class MainCharacterScript : MonoBehaviour
     public GameObject _camera1;
     public GameObject canva;
     public float running_speed = 6.0f;
-    public static float _SpeedTime = 1.0f;
     public static bool getzoom = false;
     public int HPset;
     public static int HP = 30;
@@ -52,19 +51,18 @@ public class MainCharacterScript : MonoBehaviour
     public void zoomin()
     {
         _camera1.SetActive(false);
-        _SpeedTime = 0.5f;
+        Time.timeScale = 0.5f;
         canva.transform.position = new Vector3 (0, 50, 0);
     }
     public void zoomout()
     {
         _camera1.SetActive(true);
-        _SpeedTime = 1;
+        Time.timeScale = 1;
         canva.transform.position = new Vector3(0, 0, 0);
     }
     void Start()
     {
         HP = HPset;
-        _SpeedTime = 1.0f;
         _camera1.SetActive(true);
     }
     void Update()
@@ -75,17 +73,15 @@ public class MainCharacterScript : MonoBehaviour
         {
             HP = HPset;
         }//บังคับให้เลือดไม่เกิน HPset ที่ตั้งไว้
-        Time.timeScale = _SpeedTime; // ความเร็วของเวลา
-
         if (running && isGround && HP > 0)
         {
             transform.Translate(1 * Time.deltaTime * running_speed, 0, 0);//เดินไปข้างหน้า
         }
-        if (getzoom)
+        if (getzoom && Time.timeScale != 0)
         {
             zoomin();
         }
-        else if (!getzoom)
+        else if (!getzoom && Time.timeScale != 0)
         {
             zoomout();
         }

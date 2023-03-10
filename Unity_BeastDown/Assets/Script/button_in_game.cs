@@ -11,9 +11,16 @@ public class button_in_game : MonoBehaviour
     public float TimeDie = 2.0f;
     public void ResumeGame()
     {
-        pauseUI.SetActive(false);
-        MainCharacterScript._SpeedTime = 1;
-        Time.timeScale = 1; 
+        if (Time.timeScale == 0)//หยุดอยู่
+        {
+            pauseUI.SetActive(false);
+            Time.timeScale = 1;
+        }
+        else if (Time.timeScale > 0)//เดินอยู่
+        {
+            pauseUI.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
     public void Restar_Buttom()
     {
@@ -35,16 +42,11 @@ public class button_in_game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 0)//หยุด
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseUI.SetActive(false);
-            MainCharacterScript._SpeedTime = 1;
+            ResumeGame();
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale > 0)//เดิน
-        {
-            pauseUI.SetActive(true);
-            MainCharacterScript._SpeedTime = 0;
-        }
+
         if (MainCharacterScript.HP <= 0)
         {
             MainCharacterScript.getzoom = true;
@@ -55,15 +57,15 @@ public class button_in_game : MonoBehaviour
                 Time.timeScale = 0;
                 gameOverUI.SetActive(true);
             }
-        }
+        }//แพ้
         if (enemyBoss.bossDie)
         {
             TimeDie = TimeDie - Time.deltaTime;
             if (TimeDie <= 0)
             {
                 Time.timeScale = 0;
-                winnerUI.SetActive(false);
+                winnerUI.SetActive(true);
             }
-        }
+        }//ชนะ
     }
 }

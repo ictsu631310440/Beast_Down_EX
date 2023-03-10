@@ -49,6 +49,7 @@ public class Sys_Power : MonoBehaviour
         if (powerSlider.value >= 100)
         {
             current_power = current_power - Down_point;
+            MainCharacterScript.HP = MainCharacterScript.HP + Heal;
         }
     }
     void Update()
@@ -58,7 +59,6 @@ public class Sys_Power : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             click_Use();
-            MainCharacterScript.HP = MainCharacterScript.HP + Heal;
         }
     }
 }

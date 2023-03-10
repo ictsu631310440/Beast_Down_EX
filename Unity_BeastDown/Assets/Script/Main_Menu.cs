@@ -61,7 +61,7 @@ public class Main_Menu : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 1.0f;
+
     }
 
 

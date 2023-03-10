@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4338.631, g: 3724.5469, b: 4525.047, a: 1}
+  m_IndirectSpecularColor: {r: 4518.05, g: 4056.254, b: 5572.2344, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8398,7 +8398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 198715425}
   gameOverUI: {fileID: 1989501740}
-  winnerUI: {fileID: 0}
+  winnerUI: {fileID: 1101737326}
   TimeDie: 2
 --- !u!1 &2134787941
 GameObject:
