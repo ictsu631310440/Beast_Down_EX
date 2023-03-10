@@ -11,7 +11,11 @@ public class Sys_VolumeController : MonoBehaviour
         volumeSlider.value = audioSource.volume;
     }
 
-    public void UpdateVolume()
+    //public void UpdateVolume()
+    //{
+    //    audioSource.volume = volumeSlider.value;
+    //}
+    void Update()
     {
         audioSource.volume = volumeSlider.value;
     }

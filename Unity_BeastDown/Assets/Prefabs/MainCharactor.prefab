@@ -120,7 +120,7 @@ MonoBehaviour:
   _camera1: {fileID: 0}
   canva: {fileID: 0}
   running_speed: 6
-  HPset: 60
+  HPset: 5
   hpBar: {fileID: 0}
   hptext: {fileID: 0}
   up: 20
