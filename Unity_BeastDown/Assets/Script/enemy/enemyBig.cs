@@ -115,7 +115,6 @@ public class enemyBig : MonoBehaviour
         {
             bodyenemy.SetActive(false);
             enemywilldie.SetActive(true);
-            enemywilldie.GetComponent<Rigidbody>().AddForce(new Vector3(back, up, 0));
             Destroy(Allbodyenemy, 0.5f);
         }
     }

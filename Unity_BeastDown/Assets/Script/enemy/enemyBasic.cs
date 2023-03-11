@@ -15,7 +15,13 @@ public class enemyBasic : MonoBehaviour
     public GameObject bodyenemy;
     public GameObject enemywilldie;
 
-
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "map")
+        {
+            isGround = true;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "map")
@@ -113,7 +119,6 @@ public class enemyBasic : MonoBehaviour
         {
             bodyenemy.SetActive(false);
             enemywilldie.SetActive(true);
-            enemywilldie.GetComponent<Rigidbody>().AddForce(new Vector3(back, up, 0));            
             Destroy(Allbodyenemy, 0.5f);
         }
     }
