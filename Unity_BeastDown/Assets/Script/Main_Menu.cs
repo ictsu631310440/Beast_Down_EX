@@ -10,8 +10,6 @@ public class Main_Menu : MonoBehaviour
     /*public GameObject select_gamemode;
     public GameObject Credit;*/
 
-    private int indexElement;
-
     /*public void Play_Buttom()
     {
         select_gamemode.SetActive(true);
@@ -61,7 +59,7 @@ public class Main_Menu : MonoBehaviour
 
     private void Start()
     {
-
+        Time.timeScale = 1;
     }
 
 
