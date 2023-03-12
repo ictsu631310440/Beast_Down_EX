@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class Main_Menu : MonoBehaviour
 {
     public GameObject[] UiElement;
+    public GameObject[] UiBT;
+    public int pageNum = 1;
     /*public GameObject select_gamemode;
     public GameObject Credit;*/
 
@@ -44,6 +46,23 @@ public class Main_Menu : MonoBehaviour
             if(item != UiElement[indexElement]) // check if item is not the same as UiElement[indexElement]`
             item.SetActive(false); // deactivate item
         }
+    }
+
+    public void Nextpage()
+    {
+        UiElement[pageNum].SetActive(true);
+        if (pageNum == 2)
+        {
+            UiBT[0].SetActive(false);
+            UiBT[1].SetActive(true);
+        }
+        
+        foreach (var item in UiElement)
+        {
+            if (item != UiElement[pageNum]) // check if item is not the same as UiElement[indexElement]`
+                item.SetActive(false); // deactivate item
+        }
+        ++pageNum;
     }
 
     public void GotoScene(string nameScene)
