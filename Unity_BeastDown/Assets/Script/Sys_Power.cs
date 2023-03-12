@@ -27,8 +27,9 @@ public class Sys_Power : MonoBehaviour
 
     public void Start()
     {
-        OnSliderChanged();
+        //OnSliderChanged();
         powerSlider.value = 0;
+        current_power = 0;
     }
 
     public void OnSliderChanged()
