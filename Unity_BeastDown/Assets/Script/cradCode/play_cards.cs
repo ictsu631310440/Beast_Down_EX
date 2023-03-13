@@ -118,13 +118,26 @@ public class play_cards : MonoBehaviour
         }        
         Debug.Log("hitcard : " + hitcard);
     }
-    public void ShuffleCaed()
+    public async void ShuffleCaed()
     {
+        //for (int i = 0; i < playedDeck.Count; i++)
+        //{
+        //    deck.Add(playedDeck[i]);
+        //}
+        //playedDeck.Clear();
+
         for (int i = 0; i < playedDeck.Count; i++)
         {
-            deck.Add(playedDeck[i]);
+            int randomIndex = Random.Range(i, playedDeck.Count);
+            GameObject temp = playedDeck[i];
+            playedDeck[i] = playedDeck[randomIndex];
+            playedDeck[randomIndex] = temp;
+            await Task.Delay(100);
         }
+        deck.AddRange(playedDeck);
         playedDeck.Clear();
+        deckSizeText.text = "Deck: " + deck.Count;
+
     }
 
     void Start()
