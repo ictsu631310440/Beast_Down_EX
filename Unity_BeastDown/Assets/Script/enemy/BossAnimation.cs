@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossAnimation : MonoBehaviour
 {
+    public AudioSource BossMusic;
     public Animator _BossAnimation;
     bool hitplayer = false;
     private void OnTriggerEnter(Collider other)
@@ -12,6 +13,10 @@ public class BossAnimation : MonoBehaviour
         {
             _BossAnimation.SetBool("isG", false);
             _BossAnimation.SetBool("hitplayer", true);
+            if (enemyBoss.BossHP < 300)
+            {
+                BossMusic.Play();
+            }
         }
         if (other.gameObject.tag == "map")
         {
@@ -21,7 +26,7 @@ public class BossAnimation : MonoBehaviour
     }
     void Start()
     {
-
+        BossMusic = GetComponent<AudioSource>();
     }
     void Update()
     {

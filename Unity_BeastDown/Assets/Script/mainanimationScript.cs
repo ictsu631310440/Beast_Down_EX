@@ -8,9 +8,7 @@ public class mainanimationScript : MonoBehaviour
     public GameObject openAnimation;
     public Animator mainAnimation;
     public static float timeOpening = 5.5f;
-    float LR = 0.45f;
     float TimeA = 0.45f;
-    bool R = false;
     int HPChecked;
 
     public static bool playAnimationAttack = false;
@@ -18,14 +16,12 @@ public class mainanimationScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LR = 0.4f;
         openAnimation.SetActive(true);
         mainPlayer.SetActive(false);
     }
 
     public void ResetV()
     {
-        LR = 0.45f;
         mainAnimation.SetBool("hit", false);
         playAnimationAttack = false;
         mainAnimation.SetBool("takeDamage", false);
@@ -45,20 +41,7 @@ public class mainanimationScript : MonoBehaviour
             openAnimation.SetActive(false);
             mainPlayer.SetActive(true);
             MainCharacterScript.running = true;
-            LR = LR - Time.deltaTime;
         }
-        if (LR <= 0 && !R)
-        {
-            R = true;
-            mainAnimation.SetBool("R", true);
-            LR = 0.45f;
-        }
-        if (LR <= 0 && R)
-        {
-            R = false;
-            mainAnimation.SetBool("R", false);
-            LR = 0.45f;
-        }//สลับซ้ายขวา
 
         if (playAnimationAttack == true)
         {

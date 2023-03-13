@@ -42,7 +42,7 @@ public class enemyBig : MonoBehaviour
             else if ((play_cards.sequenceCardOneToFive[0] != 0 || play_cards.sequenceCardOneToFive[1] != 0 || play_cards.sequenceCardOneToFive[2] != 0
                 || play_cards.sequenceCardOneToFive[3] != 0 || play_cards.sequenceCardOneToFive[4] != 0) && HPenemy != 0 && isGround)
             {
-                isGround = false;
+                //isGround = false;
                 play_cards.willruncard = true;
 
                 if (ontriggerwithplay <= 2)

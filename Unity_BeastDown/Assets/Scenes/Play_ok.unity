@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4512.253, g: 4055.496, b: 5608.8594, a: 1}
+  m_IndirectSpecularColor: {r: 4518.2197, g: 4056.4727, b: 5572.6094, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2453,27 +2453,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.000004, y: 0.1, z: 10.000002}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &326052084 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1342083520, guid: f13a01a01d1b4ad4ea7be9527988ec81, type: 3}
-  m_PrefabInstance: {fileID: 37004362629892944}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &326052089
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326052084}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!4 &326930801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8939462023251191774, guid: d0ce32ca47355804399a9ef6c333629b, type: 3}
@@ -7633,6 +7612,11 @@ MonoBehaviour:
   - {fileID: 516918971}
   - {fileID: 657014984}
   - {fileID: 378670967}
+  - {fileID: 1765956839}
+  - {fileID: 1879730319}
+  - {fileID: 1785102298}
+  - {fileID: 1606531320}
+  - {fileID: 1921870738}
   On_hand: []
   play: []
   cardDeck: {fileID: 1984944769}
@@ -7819,7 +7803,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426620002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.90333104, y: 0.3639703, z: -10}
+  m_LocalPosition: {x: 0.9042752, y: 0.3639703, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8922,7 +8906,7 @@ GameObject:
   - component: {fileID: 1606531323}
   - component: {fileID: 1606531322}
   m_Layer: 0
-  m_Name: C10 (1)
+  m_Name: C17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8936,7 +8920,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606531320}
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 6, y: -6.836, z: -5.5}
+  m_LocalPosition: {x: 4.9, y: -6.76, z: -5.5}
   m_LocalScale: {x: 0.07499998, y: 1, z: 0.106086716}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10940,7 +10924,7 @@ GameObject:
   - component: {fileID: 1921870741}
   - component: {fileID: 1921870740}
   m_Layer: 0
-  m_Name: C8 (1)
+  m_Name: C18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11813,7 +11797,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134787941}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.90333104, y: 0.3639703, z: -10}
+  m_LocalPosition: {x: 0.9042752, y: 0.3639703, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11829,13 +11813,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 132058066, guid: f13a01a01d1b4ad4ea7be9527988ec81, type: 3}
+      propertyPath: BossMusic
+      value: 
+      objectReference: {fileID: 1063978092}
     - target: {fileID: 1050789942198350683, guid: f13a01a01d1b4ad4ea7be9527988ec81, type: 3}
       propertyPath: m_Name
       value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050789942198350683, guid: f13a01a01d1b4ad4ea7be9527988ec81, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5055848497079612674, guid: f13a01a01d1b4ad4ea7be9527988ec81, type: 3}
       propertyPath: m_RootOrder

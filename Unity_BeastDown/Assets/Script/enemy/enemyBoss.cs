@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemyBoss : MonoBehaviour
 {
-    public int BossHP = 300;
+    [SerializeField] public static int BossHP = 300;
     public int BossATK = 6;
     public float running_speed = 6.0f;
     bool running = false;

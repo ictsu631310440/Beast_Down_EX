@@ -445,7 +445,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &1607252994
 GameObject:
@@ -730,7 +730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602a98fd39d058040bb2beef60d52985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossHP: 300
   BossATK: 6
   running_speed: 6
   speed: 0
@@ -766,6 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ac334770173184da6e41196ce01728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BossMusic: {fileID: 0}
   _BossAnimation: {fileID: 1453384730}
 --- !u!1 &1519326499228425424
 GameObject:
