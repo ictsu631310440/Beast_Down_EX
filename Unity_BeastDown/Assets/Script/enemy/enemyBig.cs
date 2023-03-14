@@ -45,11 +45,7 @@ public class enemyBig : MonoBehaviour
                 //isGround = false;
                 play_cards.willruncard = true;
 
-                if (ontriggerwithplay <= 2)
-                {
-                    GetComponent<Rigidbody>().AddForce(new Vector3(back, up, 0));
-                    ontriggerwithplay++;
-                }
+
 
                 if (playerDamage.attack_and_defens > 0)
                 {
@@ -92,7 +88,12 @@ public class enemyBig : MonoBehaviour
                 playerDamage.Lplus = playerDamage.plus;
                 playerDamage.Lmultiply = playerDamage.multiply;                         //เก็บค่าพิเศษ                   
 
-                if (HPenemy > 0 && ontriggerwithplay >= 2)
+                if (ontriggerwithplay < 1)
+                {
+                    GetComponent<Rigidbody>().AddForce(new Vector3(back, up, 0));
+                    ontriggerwithplay++;
+                }
+                else if (HPenemy > 0 && ontriggerwithplay == 2)
                 {
                     MainCharacterScript.HP = MainCharacterScript.HP - HPenemy;
                     HPenemy = 0;
