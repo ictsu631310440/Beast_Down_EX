@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4518.2197, g: 4056.4727, b: 5572.6094, a: 1}
+  m_IndirectSpecularColor: {r: 4518.205, g: 4056.4688, b: 5572.5625, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12047,6 +12047,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopUp-BacktoMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 5276356462031963650, guid: 5afde645b04900542898eaf9b05bde59, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5276356462031963651, guid: 5afde645b04900542898eaf9b05bde59, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12131,10 +12135,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5276356462997259654, guid: 5afde645b04900542898eaf9b05bde59, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276356462997259654, guid: 5afde645b04900542898eaf9b05bde59, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276356462997259654, guid: 5afde645b04900542898eaf9b05bde59, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276356462997259654, guid: 5afde645b04900542898eaf9b05bde59, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5276356462997259655, guid: 5afde645b04900542898eaf9b05bde59, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2113893913}
+    - target: {fileID: 5276356463145392014, guid: 5afde645b04900542898eaf9b05bde59, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276356463145392014, guid: 5afde645b04900542898eaf9b05bde59, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276356463145392014, guid: 5afde645b04900542898eaf9b05bde59, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276356463145392014, guid: 5afde645b04900542898eaf9b05bde59, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5276356463145392015, guid: 5afde645b04900542898eaf9b05bde59, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

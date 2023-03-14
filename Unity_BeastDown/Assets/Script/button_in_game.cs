@@ -85,7 +85,7 @@ public class button_in_game : MonoBehaviour
             {
                 MainCharacterScript.getzoom = false;
                 Time.timeScale = 0;
-                ActiveElement(3);
+                ActiveElement(2);
                 /*gameOverUI.SetActive(true);*/
             }
         }//แพ้
@@ -95,7 +95,7 @@ public class button_in_game : MonoBehaviour
             if (TimeDie <= 0)
             {
                 Time.timeScale = 0;
-                ActiveElement(4);
+                ActiveElement(3);
                 /*winnerUI.SetActive(true);*/
             }
         }//ชนะ

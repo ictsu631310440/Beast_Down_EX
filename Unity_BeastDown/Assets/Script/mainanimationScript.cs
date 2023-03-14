@@ -46,6 +46,7 @@ public class mainanimationScript : MonoBehaviour
         if (playAnimationAttack == true)
         {
             mainAnimation.SetInteger("type", playerDamage.type);
+            mainAnimation.SetInteger("type", playerDamage.Ltype);
             mainAnimation.SetBool("hit", true);
             TimeA = TimeA - Time.deltaTime;
             if (TimeA <= 0)
@@ -61,14 +62,11 @@ public class mainanimationScript : MonoBehaviour
             }
             if (playerDamage.dodge == 0)
             {
-                mainAnimation.SetBool("hit", false);
                 mainAnimation.SetBool("dodge", false);
-                playAnimationAttack = false;
             }//N
         }
         if (MainCharacterScript.HP < HPChecked)
         {
-            mainAnimation.SetInteger("type", 5);
             mainAnimation.SetBool("takeDamage", true);
             HPChecked = MainCharacterScript.HP;
             Invoke("ResetV", 0.2f);
