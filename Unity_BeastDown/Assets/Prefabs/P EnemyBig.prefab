@@ -302,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 398579388186294686, guid: 3cceebf0068679045add6a0f2a89b3b3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b24354f7f66001d49824354f63be85f1, type: 2}
+      objectReference: {fileID: 2100000, guid: d8723f5fca13b974bb358f59d5ffd4b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 3cceebf0068679045add6a0f2a89b3b3, type: 3}
       propertyPath: m_Name
       value: Bigdie
@@ -1327,7 +1327,7 @@ PrefabInstance:
     - target: {fileID: 398579388186294686, guid: 3cceebf0068679045add6a0f2a89b3b3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b24354f7f66001d49824354f63be85f1, type: 2}
+      objectReference: {fileID: 2100000, guid: d8723f5fca13b974bb358f59d5ffd4b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 3cceebf0068679045add6a0f2a89b3b3, type: 3}
       propertyPath: m_Name
       value: animationBig

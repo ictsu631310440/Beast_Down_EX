@@ -62,7 +62,7 @@ public class play_cards : MonoBehaviour
             {
                 On_hand[i].transform.position = cardPlay.position;
                 play.Add(On_hand[i]);
-                On_hand[i] = null;
+                //On_hand[i] = null;
                 playedDeck.Add(play[0]);
                 availableCaedInDeck[i] = true;
 
@@ -73,7 +73,7 @@ public class play_cards : MonoBehaviour
     }
     public async void wait_show_card(int s)
     {
-        await Task.Delay((int)(s * 1000));
+        await Task.Delay((int)(s * 250));
         play[0].transform.position = cardPlayed.position;
         play.Remove(play[0]);
     }
@@ -114,7 +114,9 @@ public class play_cards : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            Debug.Log("sequenceCardOneToFive[" + i + "] : " + sequenceCardOneToFive[i]);
+            //Debug.Log("sequenceCardOneToFive[" + i + "] : " + sequenceCardOneToFive[i]);
+            Debug.Log("availableCaedInDeck[" + i + "] : " + availableCaedInDeck[i]);
+            Debug.Log("On_hand[" + i + "]" + On_hand[i]);
         }        
         Debug.Log("hitcard : " + hitcard);
     }
@@ -160,6 +162,7 @@ public class play_cards : MonoBehaviour
     {
         deckSizeText.text = deck.Count.ToString(); // อับเดดจำนวนการ์ดที่เหลือใน deck
         updateNum(); //ดับเดดตัวเลขที่แสดง
+        showsequenceCardOneToFive();
 
         if (deck.Count <= 0)
         {
