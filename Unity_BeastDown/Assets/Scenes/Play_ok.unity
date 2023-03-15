@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4515.091, g: 4051.8154, b: 5561.8413, a: 1}
+  m_IndirectSpecularColor: {r: 4516.9443, g: 4054.6445, b: 5569.7344, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3409,7 +3409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -55}
+  m_AnchoredPosition: {x: 0, y: 171}
   m_SizeDelta: {x: 370.7628, y: 30.001999}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &532802183
@@ -6279,7 +6279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426620002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9034941, y: 0.3639703, z: -10}
+  m_LocalPosition: {x: 0.9051087, y: 0.3639703, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9374,7 +9374,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134787941}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9034941, y: 0.3639703, z: -10}
+  m_LocalPosition: {x: 0.9051087, y: 0.3639703, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9390,10 +9390,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 132058066, guid: f13a01a01d1b4ad4ea7be9527988ec81, type: 3}
-      propertyPath: BossMusic
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1050789942198350683, guid: f13a01a01d1b4ad4ea7be9527988ec81, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -9830,6 +9826,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 182014293}
     m_Modifications:
+    - target: {fileID: 6641721563970722061, guid: b325a33ea5ec645f6bd2ce9eb99b8604, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 230
+      objectReference: {fileID: 0}
     - target: {fileID: 6641721563992488360, guid: b325a33ea5ec645f6bd2ce9eb99b8604, type: 3}
       propertyPath: m_Name
       value: Ultimate UI
@@ -9937,6 +9937,10 @@ PrefabInstance:
     - target: {fileID: 6641721564749366365, guid: b325a33ea5ec645f6bd2ce9eb99b8604, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641721564849202110, guid: b325a33ea5ec645f6bd2ce9eb99b8604, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 230
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b325a33ea5ec645f6bd2ce9eb99b8604, type: 3}
