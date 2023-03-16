@@ -18,5 +18,14 @@ public class Sys_VolumeController : MonoBehaviour
     void Update()
     {
         audioSource.volume = volumeSlider.value;
+
+        if (Time.timeScale == 0)
+        {
+            audioSource.Pause();
+        }
+        else
+        {
+            audioSource.Play();
+        }
     }
 }
