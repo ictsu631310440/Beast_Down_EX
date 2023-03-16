@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 1
-  controlID: 138
+  controlID: 105
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 139
+  controlID: 106
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 140
+  controlID: 62
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -431,7 +431,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 368bfeffcc4affffc4e4ffff08ce0000
+      m_ExpandedIDs: ee28ffff06f3ffff727c0000fc7d0000eed50000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -713,9 +713,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 94.67291, y: -15.558903, z: -229.10315}
+    m_Target: {x: 4.9613657, y: 9.708671, z: 3.6512284}
     speed: 2
-    m_Value: {x: 94.67291, y: -15.558903, z: -229.10315}
+    m_Value: {x: 4.9613657, y: 9.708671, z: 3.6512284}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -762,13 +762,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.08286945, y: 0.12778606, z: -0.0002867985, w: 0.9890547}
+    m_Target: {x: 0.040497325, y: -0.94582474, z: 0.08794206, w: 0.31219998}
     speed: 2
-    m_Value: {x: -0.08281043, y: 0.12769505, z: -0.00028659424, w: 0.98835033}
+    m_Value: {x: 0.04140181, y: -0.9448827, z: 0.09071522, w: 0.311855}
   m_Size:
-    m_Target: 13.629691
+    m_Target: 1.7334968
     speed: 2
-    m_Value: 13.629691
+    m_Value: 1.7334955
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1131,22 +1131,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Script
+    - Assets/3DModel/animation
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Script
+  - Assets/3DModel/animation
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\git\Beast_Down_EX\Unity_BeastDown
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 36cc0000
-    m_LastClickedID: 52278
-    m_ExpandedIDs: 0000000090cb000092cb000094cb000096cb000098cb00009acb00009ccb00009ecb0000a0cb0000a2cb000000ca9a3b
+    m_SelectedIDs: dec60000
+    m_LastClickedID: 50910
+    m_ExpandedIDs: 0000000028c600002ac600002cc600002ec6000030c6000032c6000034c6000036c6000038c600003ac6000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1174,7 +1174,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000090cb000092cb000094cb000096cb000098cb00009acb00009ccb00009ecb0000a0cb0000a2cb0000
+    m_ExpandedIDs: 0000000028c600002ac600002cc600002ec6000030c6000032c6000034c6000036c6000038c600003ac60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
