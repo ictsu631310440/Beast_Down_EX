@@ -9,6 +9,7 @@ public class HowTo : MonoBehaviour
     public GameObject[] UiElement;
     public GameObject[] UiBT;
     public int pageNum = 1;
+    private string previousSceneName;
     /*public GameObject select_gamemode;
     public GameObject Credit;*/
 
@@ -65,6 +66,28 @@ public class HowTo : MonoBehaviour
         ++pageNum;
     }
 
+    public void Backpage()
+    {
+        --pageNum;
+        if (pageNum < 0)
+        {
+            pageNum = 0;
+        }
+
+        UiElement[pageNum].SetActive(true);
+        if (pageNum < 2)
+        {
+            UiBT[0].SetActive(true);
+            UiBT[1].SetActive(false);
+        }
+
+        foreach (var item in UiElement)
+        {
+            if (item != UiElement[pageNum]) // check if item is not the same as UiElement[indexElement]`
+                item.SetActive(false); // deactivate item
+        }
+    }
+
     public void GotoScene(string nameScene)
     {
         SceneManager.LoadScene(nameScene);
@@ -72,9 +95,7 @@ public class HowTo : MonoBehaviour
 
     public void GoBack()
     {
-        int previousSceneBuildIndex = SceneManager.GetActiveScene().buildIndex - 1;
-        string previousSceneName = SceneManager.GetSceneByBuildIndex(previousSceneBuildIndex).name;
-
+        string previousSceneName = PlayerPrefs.GetString("PreviousSceneName");
         if (previousSceneName == "Play_ok")
         {
             SceneManager.LoadScene("Play_ok");
@@ -94,14 +115,23 @@ public class HowTo : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
+        previousSceneName = PlayerPrefs.GetString("PreviousSceneName");
     }
 
     private void Update()
     {
-       /* if (Input.GetKeyDown(KeyCode.Escape))
+        /* if (Input.GetKeyDown(KeyCode.Escape))
+         {
+             ResumeGame();
+         }*/
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            ResumeGame();
-        }*/
+            Backpage();
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Nextpage();
+        }
     }
 
     public void ResumeGame()
