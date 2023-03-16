@@ -6,14 +6,13 @@ using TMPro;
 
 public class MainCharacterScript : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject _camera1;
     public GameObject canva;
     public float running_speed = 6.0f;
     public static bool getzoom = false;
     public int HPset;
     public static int HP = 30;
-    public Slider hpBar;
+    public Image hpFillImage; // Reference to the UI Image object representing the HP fill
     public TextMeshProUGUI hptext;
 
     public int up = 20;
@@ -52,7 +51,7 @@ public class MainCharacterScript : MonoBehaviour
     {
         _camera1.SetActive(false);
         Time.timeScale = 0.5f;
-        canva.transform.position = new Vector3 (0, 50, 0);
+        canva.transform.position = new Vector3(0, 50, 0);
     }
     public void zoomout()
     {
@@ -67,7 +66,8 @@ public class MainCharacterScript : MonoBehaviour
     }
     void Update()
     {
-        hpBar.value = HP; //บอกเลือดที่หลอด
+        float fillAmount = (float)HP / (float)HPset;
+        hpFillImage.fillAmount = fillAmount; // Update the fill amount of the HP fill UI Image object
         hptext.text = "HP : " + HP.ToString(); //บอกเลือดตัวเลข
         if (HP >= HPset)
         {
@@ -90,7 +90,7 @@ public class MainCharacterScript : MonoBehaviour
         {
             getzoom = true;
         }
-        else if(Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S))
         {
             getzoom = false;
         }

@@ -19,13 +19,13 @@ public class Sys_VolumeController : MonoBehaviour
     {
         audioSource.volume = volumeSlider.value;
 
-        if (Time.timeScale == 0)
+        /*if (Time.timeScale == 0)
         {
             audioSource.Pause();
         }
         else
         {
             audioSource.Play();
-        }
+        }*/
     }
 }
