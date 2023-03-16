@@ -81,6 +81,29 @@ public class Main_Menu : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ResumeGame();
+        }
+    }
+
+    public void ResumeGame()
+    {
+        if (Time.timeScale == 0)//หยุดอยู่
+        {
+            /*pauseUI.SetActive(false);*/
+            ActiveElement(0);
+            Time.timeScale = 1;
+        }
+        else if (Time.timeScale > 0)//เดินอยู่
+        {
+            /*pauseUI.SetActive(true);*/
+            ActiveElement(2);
+            Time.timeScale = 0;
+        }
+    }
 
     /*    void Start()
         {
