@@ -70,6 +70,21 @@ public class Main_Menu : MonoBehaviour
         SceneManager.LoadScene(nameScene);
     }
 
+    public void GoBack()
+    {
+        int previousSceneBuildIndex = SceneManager.GetActiveScene().buildIndex - 1;
+        string previousSceneName = SceneManager.GetSceneByBuildIndex(previousSceneBuildIndex).name;
+
+        if (previousSceneName == "Play_ok")
+        {
+            SceneManager.LoadScene("Play_ok");
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
+
     public void QuitGame()
     {
         Debug.Log("Close Game.exe");
